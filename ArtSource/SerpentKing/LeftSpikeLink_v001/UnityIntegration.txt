@@ -1,0 +1,10 @@
+2026-11-18T17:15:39.2029837+08:00
+Saved: Assets/Scenes/level1.unity
+Lever=(54.91, -30.23, 0.00); outlet=(53.20, -25.68, 0.00); direction=LEFT; travel=4.6
+Character: existing 35-bone approved lever clip (60 fps, on and off); native skinning, no movie.
+Activate at clip 1.52 s / playback 1.5 = 1.013 s after pose starts. Hand, handle and launch share one clock.
+Shoot=.16 s, withdraw=.38 s, collider follows visible extended portion. Old vertical sprite disabled; no upward translation.
+Outlet is at design (540,565), the left-facing outer gallery corner. Tall door-like housing removed; compact .39 x .34 m sleeve only.
+Ground lever moved from occluded design x=560 to clear bay x=650, y=858 (room floor). Lever mesh outlines widened and sorted 12/13; near pillar remains 33.
+Inspector settings on PalaceLeftSpikeMechanism. Gallery, stair, actual right exit doorway, camera, room placement and music retained.
+Native flat black/gold geometry follows the approved concept. No Play mode, gameplay automation or screenshots.

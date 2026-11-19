@@ -1,0 +1,8 @@
+2026-11-18T22:05:13.4680906+08:00
+Saved: Assets/Scenes/level1.unity
+Source: spike / right upper gallery door at (70.07, -25.35, 0.00)
+Entry bounds: Center: (70.07, -24.45, 0.00), Extents: (0.70, 1.10, 0.00); automatic, requires StoneDefeated; lower floor excluded by vertical bounds.
+Destination: fang / FangStairs, spawn (69.80, -13.23, 0.00); existing alternating thrusting heads and support surfaces retained.
+Flow: fade to black -> relocate / configure platforms and checkpoint / snap camera -> fade in -> enable destination gameplay.
+Fade per direction: 0.45 s. No new art, UI or Unity scene; same-scene room transition.
+Compile and saved-reference checks only. No Play-mode or gameplay test.

@@ -1,0 +1,9 @@
+2026-11-17T19:24:34.4551309+08:00
+Scene saved: Assets/Scenes/level1.unity
+Stone object: Stone / editable downward slam
+Wake duration: 20 s; first attack delay: 0.35
+Enter -> Tracking -> Locked charge (no VFX) -> Strike -> Impact -> Recover -> Exit; camera remains independent.
+Tracking/Warning/Strike: 1.72 / 0.56 / 0.22
+Head width: 3; target floor frozen at charge onset; swept head hit detection.
+Skeleton joints: 7; pose frames: 361; old visuals disabled; shader errors: false.
+Compilation/reference/data checks only. No Play-mode test.

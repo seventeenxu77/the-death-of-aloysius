@@ -1,0 +1,1 @@
+Complete: 6 s, 60 fps; actual skeletal rendering, no Play-mode test.

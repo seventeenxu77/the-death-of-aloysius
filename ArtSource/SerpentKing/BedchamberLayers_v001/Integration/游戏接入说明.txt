@@ -1,0 +1,33 @@
+已接入 Assets/Scenes/level1.unity。原房间、镜厅、原蛇皮管道与守卫布局保留。
+新增层级根对象：Royal Bedchamber | front passage and giant curtained bed
+01：镜厅尽头的锁门、门锁和正面小洞口。
+02：前室、窄凳、柜台、吊灯、左门和返程洞口。
+03：巨床寝宫、独立床铺、前层床架、左右帘布、拉绳和返回门。
+
+操作：
+A/D 移动，Shift 跑，Space 跳，保留原控制。
+镜厅尽头，小洞口下跳起并按住 E，进入前室。
+前室往左走，到门旁按 E，开门进入寝宫。
+床右侧拉绳附近按 E，开合床帘。床铺和床架固定，只收拢左右帘布。
+寝宫右门按 E 返回前室；前室右侧洞口附近按 E 返回镜厅。
+R 保留返回原房间的行为。
+
+直接看寝宫：
+Unity 打开 level1，菜单 Aloysius > Level1 > Start In Giant Bedchamber On Next Play，再由你点击 Play。
+也可选中新增根对象，将 Start Area 设置为 Giant Bedchamber。
+Original Room 恢复原房间起点；Antechamber 从前室开始。
+如使用独立程序，运行根目录 PlayBedchamber.cmd 直接进入寝宫。
+PlayLevel1.cmd 使用新版程序但仍从原房间开始。
+
+Inspector：
+根对象可调整起点、交互距离、进入洞口所需跳跃高度、过渡时长、两房间镜头大小与人物亮度。
+Giant bed 对象上的 Level1BedCurtains 可调整 Open、Opening、Duration、Easing、两侧锚点、帘高、闭合宽度、收拢宽度和抬起帘脚的高度。
+编辑模式拖动 Opening 可看到形变；运行中使用 Open 或按 E 驱动完整开合。
+独立物品可在层级中移动和缩放；路径对应的 Interaction/Spawn/Limit 标记也可移动。
+
+范围说明：
+建筑底图按寝宫、前室和镜厅端墙裁切成三个 Sprite，保持完整贴图资源。
+帘布使用独立网格形变，不是整张场景缩放，也不是物理布料模拟。
+洞口使用缩小进入的纵深过渡，复用爬行姿势；没有新增完整的正面攀爬动作。
+床内预留 Sleeping serpent slot，本次未新增睡眠蛇或战斗逻辑。
+本次只导入、编辑、保存和打包；没有运行游戏、Play Mode、自动测试或视觉测试。

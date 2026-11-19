@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "sceneId": "ec2a2a081f40c8f46b6cb34c1c3f173b",
+  "revision": 8,
+  "updatedAt": "2026-11-07T13:31:27.684Z",
+  "overrides": {
+    "GlobalObjectId_V1-2-ec2a2a081f40c8f46b6cb34c1c3f173b-1258362473-0": {
+      "position": [
+        0,
+        0.9624937,
+        0
+      ]
+    }
+  },
+  "notes": ""
+}

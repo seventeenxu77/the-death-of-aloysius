@@ -1,0 +1,412 @@
+{
+  "coordinateSystem": "Preview pixels, origin top-left; Unity pivots bottom-left normalized.",
+  "designSize": [
+    1774,
+    887
+  ],
+  "assets": {
+    "Scene_Empty": {
+      "file": "Sprites/Scene_Empty.png",
+      "label": "空房间建筑",
+      "size": [
+        1774,
+        887
+      ],
+      "sourceRect": [
+        0,
+        0,
+        1774,
+        887
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ]
+    },
+    "Bed_Interior": {
+      "file": "Sprites/Bed_Interior.png",
+      "label": "帘后床铺",
+      "size": [
+        1536,
+        1024
+      ],
+      "sourceRect": [
+        42,
+        151,
+        1452,
+        749
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ]
+    },
+    "Bed_Frame": {
+      "file": "Sprites/Bed_Frame.png",
+      "label": "前层床架",
+      "size": [
+        1536,
+        1024
+      ],
+      "sourceRect": [
+        87,
+        33,
+        1362,
+        960
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ]
+    },
+    "Curtain_Left": {
+      "file": "Sprites/Curtain_Left.png",
+      "label": "左床帘",
+      "size": [
+        1122,
+        1402
+      ],
+      "sourceRect": [
+        72,
+        39,
+        866,
+        1332
+      ],
+      "pivot": [
+        0,
+        1
+      ]
+    },
+    "Curtain_Right": {
+      "file": "Sprites/Curtain_Right.png",
+      "label": "右床帘",
+      "size": [
+        1122,
+        1402
+      ],
+      "sourceRect": [
+        158,
+        31,
+        851,
+        1343
+      ],
+      "pivot": [
+        1,
+        1
+      ]
+    },
+    "Bench": {
+      "file": "Sprites/Bench.png",
+      "label": "窄凳",
+      "size": [
+        2172,
+        724
+      ],
+      "sourceRect": [
+        546,
+        209,
+        1080,
+        366
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ]
+    },
+    "Cabinet": {
+      "file": "Sprites/Cabinet.png",
+      "label": "柜台及托盘烛台",
+      "size": [
+        1536,
+        1024
+      ],
+      "sourceRect": [
+        414,
+        87,
+        686,
+        799
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ]
+    },
+    "Bell_Pull": {
+      "file": "Sprites/Bell_Pull.png",
+      "label": "传唤铃及拉绳",
+      "size": [
+        1024,
+        1536
+      ],
+      "sourceRect": [
+        273,
+        65,
+        353,
+        1422
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ]
+    },
+    "Door_Leaf": {
+      "file": "Sprites/Door_Leaf.png",
+      "label": "独立门扇",
+      "size": [
+        1024,
+        1536
+      ],
+      "sourceRect": [
+        170,
+        78,
+        676,
+        1377
+      ],
+      "pivot": [
+        0,
+        0.5
+      ]
+    },
+    "Snakeskin_Opening": {
+      "file": "Sprites/Snakeskin_Opening.png",
+      "label": "正面蛇皮洞口",
+      "size": [
+        1254,
+        1254
+      ],
+      "sourceRect": [
+        94,
+        116,
+        1061,
+        1028
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ]
+    },
+    "Chandelier": {
+      "file": "Sprites/Chandelier.png",
+      "label": "吊灯",
+      "size": [
+        1312,
+        1199
+      ],
+      "sourceRect": [
+        275,
+        23,
+        762,
+        1095
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ]
+    },
+    "Rug": {
+      "file": "Sprites/Rug.png",
+      "label": "小地毯",
+      "size": [
+        2172,
+        724
+      ],
+      "sourceRect": [
+        174,
+        273,
+        1824,
+        176
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ]
+    },
+    "Door_Lock": {
+      "file": "Sprites/Door_Lock.png",
+      "label": "门闩及挂锁",
+      "size": [
+        1536,
+        1024
+      ],
+      "sourceRect": [
+        416,
+        352,
+        708,
+        376
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "instances": [
+    {
+      "asset": "Rug",
+      "rect": [
+        1310,
+        490,
+        330,
+        30
+      ],
+      "order": 1
+    },
+    {
+      "asset": "Door_Leaf",
+      "rect": [
+        1532,
+        642,
+        118,
+        195
+      ],
+      "order": 2
+    },
+    {
+      "asset": "Door_Lock",
+      "rect": [
+        1555,
+        755,
+        53,
+        28
+      ],
+      "order": 3
+    },
+    {
+      "asset": "Door_Leaf",
+      "rect": [
+        1246,
+        354,
+        26,
+        174
+      ],
+      "order": 4
+    },
+    {
+      "asset": "Bench",
+      "rect": [
+        1354,
+        448,
+        98,
+        39
+      ],
+      "order": 5
+    },
+    {
+      "asset": "Cabinet",
+      "rect": [
+        1510,
+        429,
+        77,
+        60
+      ],
+      "order": 6
+    },
+    {
+      "asset": "Bell_Pull",
+      "rect": [
+        1265,
+        283,
+        40,
+        170
+      ],
+      "order": 7
+    },
+    {
+      "asset": "Snakeskin_Opening",
+      "rect": [
+        1354,
+        708,
+        56,
+        56
+      ],
+      "order": 8
+    },
+    {
+      "asset": "Snakeskin_Opening",
+      "rect": [
+        1672,
+        438,
+        38,
+        47
+      ],
+      "order": 9
+    },
+    {
+      "asset": "Chandelier",
+      "rect": [
+        592,
+        0,
+        78,
+        112
+      ],
+      "order": 10
+    },
+    {
+      "asset": "Chandelier",
+      "rect": [
+        1460,
+        205,
+        66,
+        52
+      ],
+      "order": 11
+    },
+    {
+      "asset": "Chandelier",
+      "rect": [
+        287,
+        550,
+        48,
+        93
+      ],
+      "order": 12
+    },
+    {
+      "asset": "Chandelier",
+      "rect": [
+        966,
+        550,
+        48,
+        93
+      ],
+      "order": 13
+    }
+  ],
+  "bed": {
+    "sceneRect": [
+      340,
+      108,
+      620,
+      390
+    ],
+    "localSize": [
+      1536,
+      1024
+    ],
+    "backToFront": [
+      "Bed_Interior",
+      "Future_Serpent_Actor",
+      "Curtain_Left",
+      "Curtain_Right",
+      "Bed_Frame"
+    ],
+    "interiorRect": [
+      225,
+      350,
+      1090,
+      600
+    ],
+    "curtainTop": 225,
+    "curtainHeight": 740,
+    "closedWidth": 585,
+    "gatheredWidth": 140,
+    "leftOuterX": 190,
+    "rightOuterX": 1345
+  },
+  "notes": [
+    "Reconstructed from approved concept with imagegen; not pixel-exact extraction.",
+    "Scene architecture remains one opaque plate; props and bed parts have alpha.",
+    "Future serpent actor is an empty layer slot, not an included image.",
+    "Curtain gathering is a mesh-like strip deformation preview, not cloth simulation."
+  ]
+}

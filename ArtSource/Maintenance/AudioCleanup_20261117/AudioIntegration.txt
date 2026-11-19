@@ -1,0 +1,6 @@
+2026-11-17T20:30:05.4266268+08:00
+Saved: Assets/Scenes/level1.unity
+Audio: Assets/Audio/SerpentKing/SerpentHeads_Full.wav
+Duration: 139.56 s
+Full playback enabled; 20s animation timing independent; no 25s scheduled cutoff. Non-spatial streaming source belongs to persistent campaign root.
+No Play-mode test.

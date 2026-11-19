@@ -1,0 +1,6 @@
+2026-11-17T20:13:54.7694841+08:00
+Saved Assets/Scenes/level1.unity
+Entire floor width: 31.025; world span: (40.00, 71.03); floor order: -29
+Original baked floor removed from architecture through a dedicated wall material. One whole-width floor mesh, two full-width textures. No local patch quad or rectangular edge fade.
+Authored weak tile aligned to unchanged hatch at (43.80, -2.23, 0.00). Existing dust/debris, damage trigger, passage and destination retained.
+No Play-mode test.

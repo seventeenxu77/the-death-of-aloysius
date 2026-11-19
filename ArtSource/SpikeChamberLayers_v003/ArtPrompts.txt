@@ -1,0 +1,6 @@
+Tool: built-in image_gen.imagegen
+Reference: Assets/Art/SpikeChamber_v002/Interior.png
+FarInterior: inpaint medium-distance pillars and arch spans; preserve exact 1672x941 canvas, ceiling, distant wall/columns, banners and perspective floor; no actors, serpent or foreground gameplay architecture.
+MiddleArcade: retain only medium pillars at x330,545,755,978,1155,1337 and their arch spans; original registered canvas and opaque architectural shapes, transparent gaps.
+Foreground: native sprite crops of original approved transparent Foreground.png, no repaint.
+Serpent: existing current BlackGoldWake_v026 skeletal rig, four independent skins and shared coils, drawBed=false; no generated replacement serpent.

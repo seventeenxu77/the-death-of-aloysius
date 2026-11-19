@@ -1,0 +1,25 @@
+Level1 家具素材来源与导入记录
+
+用户确认的设计：简洁剪影床、无装饰的闭合窗户、只留一个小把手的闭合门。
+ApprovedDesign.png：原始确认图片的完整副本。
+TransparentSprites.png：通过 image_gen.imagegen 工具去除背景后生成的透明底素材。
+游戏使用的同一张原图：Assets/Art/Textures/Level1/Props_Silhouette.png。
+没有使用 Python 修改图片；只读取 alpha 边界用于确定 Unity 切片区域。
+
+参考源文件：
+C:/Users/SQ/.codex/generated_images/01a1afb4-fedd-77c0-8d7c-498979dd5a59/exec-3c735bde-d1cb-4584-aeac-487ed70dcab5.png
+生成文件：
+C:/Users/SQ/.codex/generated_images/01a1afb4-fedd-77c0-8d7c-498979dd5a59/exec-7c7c6d5f-9e6a-4284-9de8-d97551ec1fb9.png
+工具参数：referenced_image_paths = 上述参考源文件；transparent_background = true。
+
+使用的完整提示词：
+BACKGROUND REMOVAL ONLY for a Unity 2D sprite sheet. Precisely preserve the THREE existing approved props and their shapes, dimensions, proportions, placement and spacing: small low bed WITHOUT headboard at lower left, simple closed pointed-arch window WITHOUT hinge decorations at center, tall closed pointed-arch door with ONE tiny straight lever handle at right. Remove the entire ochre parchment background to TRUE TRANSPARENCY, including the empty space between and underneath objects. The thin ochre separation lines within the bed, the window frame/central seam, door frame and tiny handle should become transparent cutouts so the game background shows through them. Keep the actual silhouettes solid dark near-black with crisp antialiased edges. Do NOT redesign, resize, move, add details, remove the door handle, add a headboard, change object count, add shadows, add lighting, or add a background. Preserve this exact full wide canvas and clear gaps between the three separate assets for sprite slicing. No text, no checkerboard baked into image, no labels, no border. Only three clean black silhouettes on genuine transparent alpha.
+
+Unity 切片：Sprite Multiple，100 pixels/unit，Full Rect，保留 10 像素透明描边余量。
+Bed: rect (78,55,528,137)，pivot (0.5,0.07299270073)，可见宽度 508px，游戏宽度 2.5。
+Window: rect (868,315,222,291)，pivot (0.5,0.03436426117)，可见宽度 202px，游戏宽度 1.05。
+Door: rect (1319,56,281,588)，pivot (0.5,0.01700680272)，可见宽度 261px，游戏宽度 1.1。
+矩形坐标以图片左下角为原点。底部 pivot 对齐可见轮廓最低点。
+
+描边由 Unity shader 实时生成，不烘焙进 PNG。
+布局与接触检测制作脚本：Logs/Props/PropsSceneBuild.cs。

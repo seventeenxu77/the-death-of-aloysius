@@ -1,0 +1,9 @@
+{
+  "landing_foot_drift_pixels": 1.2409095402129096e-13,
+  "lever_palm_contact_error_pixels": 6.355287432313019e-14,
+  "frames_per_clip": 271,
+  "bones": 35,
+  "fps": 60,
+  "duration": 4.5,
+  "game_integration": false
+}

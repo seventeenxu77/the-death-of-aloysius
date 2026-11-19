@@ -1,0 +1,15 @@
+守卫嘴部开合补充
+Preview.html：头部轻摆 + 嘴部开合，项目根目录 PreviewGuardHead.cmd 仍可打开。
+HeadSwayMouth.mp4：新版动画视频，5.2 秒，30 fps。
+ClosedMouth.png：闭嘴状态的完整画面。
+head-closed.png：内置 image_gen 生成的闭嘴透明头部层。
+生成文件：exec-2aac3ccf-a8a8-43bf-a2f8-ba35720a5c3e.png。
+Preview-sway-only.html 与 HeadSway.mp4 保留旧版仅摆头效果。
+新动画只切换嘴部区域；其余头部像素仍取原图，避免生成图片差异造成五官抖动。
+嘴部替换范围为 x=250、y=574、宽110、高50；运行时使用渐变遮罩柔化边缘，先在完整头部画布合成，再统一旋转，避免矩形裁剪接缝。
+张嘴与闭嘴之间有短暂淡入过渡，并保留轻微开合后的停顿。预览页可勾选或取消“嘴部开合”进行对比。
+本次仍为独立动画预览，没有接入 Unity 场景。
+
+生成提示词：
+Precise localized edit for a two-frame mouth animation. Edit the supplied transparent HEAD LAYER of the left-looking gothic guard. CLOSE HIS MOUTH. The current lips have a small amber triangular gap at the LEFT outline around x=285..335, y=585..610 on the 1448x1086 canvas. Change ONLY the lips and immediately adjacent mouth silhouette: bring the lower lip gently up to meet the upper lip, remove the bright open-mouth wedge, and make a natural closed-lip side-profile contour with a very subtle short lip seam, mostly solid black. Keep the overall chin/jaw position fixed. It must clearly read as closed lips, not another slightly open mouth.
+EVERYTHING ELSE MUST STAY IDENTICAL AND REGISTERED: exact 1448x1086 canvas, same head position and size, same facing LEFT pose, exact eye, brow, helmet, hair, nose, neck, colors and alpha transparency. NO re-centering, NO resizing, NO viewpoint change, NO new expression, NO altered eye, NO helmet redesign, NO added background or body. The entire image outside a tiny patch around the lips is locked. Preserve opaque black silhouette inside the character and real transparency outside. Output one full-sized transparent HEAD LAYER with closed mouth, aligned with the original open-mouth head so that animation can alternate them without head jitter. Maintain the original sophisticated black and amber silhouette style; no teeth, realistic lip detail or skin shading.

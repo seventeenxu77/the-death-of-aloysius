@@ -1,0 +1,53 @@
+{
+  "tool": "Built-in imagegen",
+  "jobs": [
+    {
+      "name": "Room",
+      "prompt": "Edit the supplied approved room illustration into an EMPTY background plate for the same side-on 2D game. Preserve exactly the flat dark brown paneled palace wall, muted antique gold moldings, ceiling, small hanging black chandelier, restrained paper shading, full-room straight-on framing and 16:9 1672x941 aspect ratio. REMOVE the bed completely, REMOVE the window and its frame completely, REMOVE the door and all its arch/frame completely, REMOVE the snakeskin pipe and mounting collar completely. Seamlessly restore uninterrupted dark brown wall paneling in these places. NO trace or silhouettes of removed objects. They will be separate game sprites. Keep the original architectural vertical wall panel divisions and dark columns. IMPORTANT floor contact line must be at 89.7% of image height from top (row844 of941): gold skirting base meets a narrow dark burgundy carpet strip at this horizontal line; carpet continues down to near bottom, black footer last few pixels. Wall panels extend down to that line. Same subdued visible dark-brown palette as the supplied reference, not an orange room, not pure crushed black. No extra objects, text or UI. Complete opaque background.",
+      "paths": [
+        "C:/Users/SQ/.codex/generated_images/01a1afb4-fedd-77c0-8d7c-498979dd5a59/exec-ca05868c-f039-4c2c-83a4-334ed511b857.png"
+      ],
+      "transparent": false
+    },
+    {
+      "name": "Bed",
+      "prompt": "Extract and reproduce ONLY the small simple bed from the supplied approved palace guard room image as one standalone transparent-background 2D game sprite. Same shape and side-on view: one pillow on left, simple low plain blanket/mattress, low dark wooden frame and legs, no headboard and no footboard rails. Crucial reproduce the APPROVED LIGHTENED version: visible muted deep warm taupe/brown mattress and pillow, dark warm charcoal wood, thin understated old-gold outline separating mattress top/frame/pillow. Sparse flat tonal values, flat paper silhouette art, not 3D or realistic, no extra details. Entire bed isolated, no wall, floor, gold wall moldings, cast shadow, carpet or other objects. Natural bed aspect ratio approximately3.3:1. Center object with modest transparent padding; use wide landscape canvas. True transparent background.",
+      "paths": [
+        "C:/Users/SQ/.codex/generated_images/01a1afb4-fedd-77c0-8d7c-498979dd5a59/exec-ca05868c-f039-4c2c-83a4-334ed511b857.png"
+      ],
+      "transparent": true
+    },
+    {
+      "name": "Door",
+      "prompt": "Extract and reproduce ONLY the closed arched door from the approved room reference as a single standalone transparent-background sprite. Include its modest muted old-gold arch trim, deep brown-gray clearly visible door panel with just one faint inset outline, tiny simple handle on right, flat bottom. Door interior opaque and dark brown, not transparent, not solid black. Keep same restrained flat 2D paper silhouette game art. No pillars, surrounding wall panel, flooring, shadow, text, locks, ornaments or other furniture. Exact side-on elevation, full object centered with modest transparent margins. Narrow tall aspect of door includingframe about.46:1. True transparent background.",
+      "paths": [
+        "C:/Users/SQ/.codex/generated_images/01a1afb4-fedd-77c0-8d7c-498979dd5a59/exec-ca05868c-f039-4c2c-83a4-334ed511b857.png"
+      ],
+      "transparent": true
+    },
+    {
+      "name": "Window",
+      "prompt": "Extract and reproduce ONLY the small arched window from the approved palace guard room reference, as standalone transparent-background sprite. Exact simple round arch muted antique gold frame, small bottom sill, black thick cross mullions dividing four muted slate-blue night glass panes. Glass must remain filled opaque muted slate blue, not see-through to transparency. Clean flat 2D silhouette and very subtle paper texture, no real reflections or 3D shading. No wall, background panels, floor, other objects, text or outer shadow. Whole window centered with transparent padding. Shape aspect ratio about.78:1. True transparent background.",
+      "paths": [
+        "C:/Users/SQ/.codex/generated_images/01a1afb4-fedd-77c0-8d7c-498979dd5a59/exec-ca05868c-f039-4c2c-83a4-334ed511b857.png"
+      ],
+      "transparent": true
+    },
+    {
+      "name": "Pipe",
+      "prompt": "Edit IMAGE1 (original snakeskin pipe asset) ONLY to restyle its surface in the exact flat subdued black-brown and antique-gold outlined scale treatment of the pipe in IMAGE2 (approved room style). IMAGE1 silhouette, exact canvas aspect3:1, relative pipe position, margins, two hollow ends, lower-edge undulation, holes and ragged contours are STRICT geometric constraints: keep them identical; do not rotate, bend anew or reposition, do not crop. Convert dimensional gold overlapping scales into dense flat black-brown scales with thin muted old-gold scale borders like IMAGE2. Some ragged thin skin torn edges. No realism, no metallic gloss or gradient embossing, no thick 3D scales. Keep both mouth interiors opaque near-black exactly as IMAGE1, not cutout transparency. Background only transparent; preserve existing transparency. NO collar (wall mounting is separate), no scene, no wall, no text. This is a full length asset matching IMAGE1 geometry, not the shortened cropped room version.",
+      "paths": [
+        "D:/the death of aloysius/the death of aloysius/Assets/Art/Textures/Level1/Snakeskin_Pipe.png",
+        "C:/Users/SQ/.codex/generated_images/01a1afb4-fedd-77c0-8d7c-498979dd5a59/exec-ca05868c-f039-4c2c-83a4-334ed511b857.png"
+      ],
+      "transparent": true
+    }
+  ],
+  "files": {
+    "Room": "exec-d7cb316a-105d-460e-94bf-a1f09b534a3a.png",
+    "Bed": "exec-8cbe03cf-8245-4274-84a0-4492e0400d33.png",
+    "Door": "exec-2cc4bd73-a704-4379-a7e3-8c200b7b4e7a.png",
+    "Window": "exec-d401f1ac-9509-46f0-852f-b637a5b9cb35.png",
+    "Pipe": "exec-df3c21c9-9a44-403b-a7cc-f5e1e583f931.png"
+  }
+}

@@ -1,0 +1,3 @@
+System.IO.IOException: Player packaging failed: Failed
+  at Aloysius.Level1.Editor.Level1RoyalBedchamberEditor.BuildPlayer () [0x000b0] in D:\the death of aloysius\the death of aloysius\Assets\Scripts\Level1\Editor\Level1RoyalBedchamberEditor.cs:176 
+  at Aloysius.Level1.Editor.Level1TeleportConsoleEditor.ProcessPending () [0x00053] in D:\the death of aloysius\the death of aloysius\Assets\Scripts\Level1\Editor\Level1TeleportConsoleEditor.cs:24 

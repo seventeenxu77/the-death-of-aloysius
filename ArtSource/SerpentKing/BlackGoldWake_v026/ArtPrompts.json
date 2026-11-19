@@ -1,0 +1,15 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "reference": "StyleReference.png",
+  "note": "Asset-generation constraints summarized for reproducibility; the closed-eye edit prompt is retained below. Source PNGs are preserved unchanged in Layers.",
+  "sharedConstraints": "Use the approved flat black silhouette and antique-gold linework. Preserve the 1536x1024 landscape canopy-bed composition, each head identity and its rest position. Generate genuinely transparent independent assets, not crops with missing hidden areas. No photorealism, new palette, different character design, or background painted into the snake layers.",
+  "assets": [
+    {"file":"Stone_Open.png","constraint":"Only the left blunt rock-plated stone head and its entire connected S-neck. Complete all previously occluded portions through a rounded root. Keep diamond emblem, open white eyes and fixed head orientation."},
+    {"file":"Fang_Open.png","constraint":"Only the right fang head and entire connected S-neck. Preserve fangs, open mouth, tongue and fang emblem. Complete all hidden neck portions."},
+    {"file":"Venom_Open.png","constraint":"Only the rear upper venom head, gold cheek sacs, droplet symbol and whole connected neck through a root. Preserve forward-down facing orientation and white open eyes."},
+    {"file":"Time_Open.png","constraint":"Only the central crowned time head and complete connected S-neck. Preserve crown, white eyes, hourglass emblem and frontal orientation. Complete the hidden lower neck."},
+    {"file":"Coils.png","constraint":"Only the shared coiled body and tapered tail, no rising heads or necks. Complete areas behind removed necks. Keep black and gold style and original composition. No bed or rail."}
+  ],
+  "closedEyePrompt": "Precise minimal CLOSED EYES frame edit. This is the {name} serpent's independent rigging layer. Preserve EXACTLY this 1536x1024 canvas, full connected head-and-neck silhouette, body and head shape, position, orientation, scale, every gold line, ornaments and alpha transparency. ONLY change the visible white OPEN EYES to CLOSED eyelids: fill white eye areas with pure black, leaving a subtle curved antique-gold closed eyelid seam. For profile with one eye close that one; otherwise close both eyes. Mouth, crown, teeth, tongue and all non-eye parts must remain absolutely unchanged. No redrawing or repositioning of any other feature. No additional glow or shadow. We will sample only the eye regions from this image for animation, so the eyelids must align pixel-for-pixel to the original eyes. Maintain genuine transparent background.",
+  "reused": {"EmptyBed.png":"../BedWake_v023/EmptyBed.png", "BedForeground.png":"../BedWake_v023/Layers/BedForeground.png"}
+}

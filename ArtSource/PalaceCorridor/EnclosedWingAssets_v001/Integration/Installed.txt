@@ -1,0 +1,16 @@
+2026-11-16T16:58:43.2440986+08:00
+Scene: Assets/Scenes/level1.unity
+Backup: ArtSource/PalaceCorridor/EnclosedWingAssets_v001/Integration/level1-before-windowed-wing-20261116-165841.unity
+Gallery length: 24; new corridor run: 22.8
+Root: 03 Windowed return wing | foreground entry, left stairs
+7 source textures; independently moving window scenery, alpha window openings, faded foreground frame, real walk height profile.
+Removed obsolete scene objects:
+03 Enclosed corridor | walk left toward antechamber
+00 Retired v001 shortcut | inactive
+Retired crawl opening | inactive
+Open depth passage entrance
+Perspective corridor | repeated arches and visible floor
+Window gallery 1
+Window gallery 2
+03 Parallax | distant palace and trees
+Kept original bedroom, pipe, mirror hall, guards, antechamber, giant bed and curtain interactions. No Play mode or tests.

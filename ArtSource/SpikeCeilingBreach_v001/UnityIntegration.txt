@@ -1,0 +1,7 @@
+2026-11-17T21:19:30.4220490+08:00
+Saved: Assets/Scenes/level1.unity
+Stone-only head/neck override. Lower roots fixed; rigid skull rotates upward; upper neck stretches into the ceiling and holds.
+Other three heads keep independent normal skeletal idle; shared coils remain connected.
+Roof opening: (55.06, -18.29, 0.00); impact 1.6 s; hold 2.45 s; entry delay 0.6 s.
+Jagged rear void/front rim, falling stone and dust. Stone skin clips above roof plane. Combat waits for extension readiness.
+No Play-mode test.

@@ -1,0 +1,4 @@
+﻿Built-in image_gen revision of the existing corridor architecture.
+Selected edit: narrow the stair depth; replace the full frontal doorway with a narrow side-facing opening, mostly occluded by the near room wall; align jamb feet and threshold with both top-landing depth corners.
+Only the left 400/2172 of the generated panorama will be used. Keep the rest of the existing scene architecture and scenery unchanged.
+No Play mode or tests.

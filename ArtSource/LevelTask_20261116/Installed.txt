@@ -1,0 +1,4 @@
+2026-11-16T22:34:39.7510437+08:00
+Scene: Assets/Scenes/level1.unity
+Rooms: crack, spike, fang, loop, cannon, time
+Wake: 66 bones; source v021 preserves v016 tracks.

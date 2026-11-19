@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "browserErrors": [],
+  "headMoves": true,
+  "shoulderFixed": true,
+  "backgroundFixed": true,
+  "poses": [
+    {
+      "time": 0,
+      "angle": 0,
+      "pivot": [
+        610,
+        884
+      ]
+    },
+    {
+      "time": 0.6,
+      "angle": -2.8,
+      "pivot": [
+        610,
+        884
+      ]
+    },
+    {
+      "time": 1.8,
+      "angle": 2.1839999999999997,
+      "pivot": [
+        610,
+        884
+      ]
+    }
+  ]
+}

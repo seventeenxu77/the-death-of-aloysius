@@ -1,0 +1,17 @@
+当前有效素材与制作文件
+
+BlackGoldWake_v026：黑金四头蛇苏醒动画，46骨骼与独立头颈素材。
+StoneSlam_BlackGold_v028：当前巨石下砸，含完整重建源码。
+FullFloor_v002：当前整片地板的完整/破洞两版、前后遮挡与接入记录。
+FloorBreakAnimation_v001：地砖破坏、碎石扬尘预览与源码。
+CrackedFloorReview_v001：已确认的局部裂缝与不规则洞口设计。
+BedchamberLayers_v001 / BedchamberRoute_v002：既有寝宫与路线源素材。
+UnifiedGallery_v003：镜厅源素材。
+LevelDesignReview_v001：机关场景设计参考。
+
+游戏完整音乐：Assets/Audio/SerpentKing/SerpentHeads_Full.wav，139.56秒。
+level1中Boss music | complete Serpent Heads为音源；SerpentBedWake的Play Full Music开启后播放完整音频，不受20秒苏醒动画时长限制。
+
+旧稿已移出Unity项目，保留原目录和.meta以便恢复：
+D:\the death of aloysius\_ArchivedDrafts\Serpent_20261117_203136
+详细清单：ArtSource/Maintenance/AudioCleanup_20261117/CleanupManifest.json

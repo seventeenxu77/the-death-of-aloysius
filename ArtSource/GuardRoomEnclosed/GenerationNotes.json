@@ -1,0 +1,17 @@
+{
+  "tool": "Built-in imagegen",
+  "jobs": [
+    {
+      "name": "EnclosedRoom",
+      "prompt": "Extract the EMPTY ROOM BACKGROUND from this approved illustration by precisely removing only the bed and its contact shadow, the blue window and all of its frame/sill, the right arched door and all of its trim/handle, and the suspended snakeskin pipe including mounting ring and their shadows. Seamlessly fill those removed regions with matching plain brown wall, wood floor where applicable, and continuous thin gold skirting. KEEP EXACTLY the enclosed room geometry, ceiling plane, left and right return walls/corners, all simple cornice lines, the hanging candle fixture, and the wooden plank FLOOR with small rectangular burgundy RUG. KEEP ALL pixel locations of the room surfaces and rug. Critical: the back wall gold skirting remains at precisely y768/941 from the top (81.6 percent of image height). Left back corner x138/1672, right back corner x1530/1672. Preserve the floor area below this line at its current full depth, not a narrow strip. Match 1672x941 landscape aspect, same colors, exposure, understated flat silhouette game illustration. No new objects, no columns, no repetitive panels, no raised doorway. Output single opaque room background, not transparent.",
+      "transparent": false
+    },
+    {
+      "name": "RecessedDoor",
+      "prompt": "Extract ONLY the small arched closed door on the RIGHT in this approved room image as a standalone transparent-background 2D game sprite. Precisely reproduce its simple narrow muted old-gold rounded arch trim, inset near-black jamb shadow, closed warm dark-brown door surface, tiny handle on right. Absolutely NO decorative inset panel, NO double trim, NO elaborate carvings. The door bottom and both jamb bottoms are FLUSH on one straight horizontal baseline with a very thin simple threshold; no projecting step or rectangular pedestal below. Full door silhouette including the small recessed shadow contained inside its frame. Original shape width:height approximately0.60, preserve that compact proportion, not a tall thin door. No surrounding wall, skirting line extending sideways, floor, pipe or other objects. The whole leaf inside the arch must be opaque brown, never transparent. Flat dark silhouette style and minimal planar shading, no photorealism. Center with small transparent margin; true alpha transparency.",
+      "transparent": true
+    }
+  ],
+  "doorHaloRemoval": "Remove all outer glow and preserve opaque door leaf and inner jamb; generated exec-e8fe9e14-0b7d-489f-b716-e261c33f4912.png",
+  "sourcePreview": "exec-4e7e86ba-5818-49b4-9435-1b143e5ec596.png"
+}

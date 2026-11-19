@@ -1,0 +1,6 @@
+2026-11-17T20:20:31.8642317+08:00
+Saved: Assets/Scenes/level1.unity
+Three persistent architecture slices share original source pixels and transforms. Original combined renderer disabled.
+Back-to-front: rear wall -40, full floor -29, bed group -14, player 20..31, floor lip 32, near columns 33, foreground dust 36
+Legacy underfloor masking blocks disabled. Descending actor and debris pass behind near floor lip below walking Y - 0.12.
+Cracked tile, impact particles, passage anchor and lower-room arrival retained. No Play-mode test.

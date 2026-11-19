@@ -1,0 +1,9 @@
+2026-11-18T21:41:55.7832039+08:00
+Saved: Assets/Scenes/level1.unity
+Impact hold: 4 s (planted pose, original recoil at the end).
+Recover: 1.6 s; settle: 0.55 s; hanging nose depth: 3.8 world units below camera top.
+Hanging remains visible and non-dangerous; cooldown advances; next attack begins from the same on-screen pose.
+Mark height: exact spear-tip anchor, compression limit disabled; joints 3/4 solve the visible mark and collider together; joint 5 fits to the fixed skull.
+Death references present: campaign -> StoneSeveringSequence -> slam / whip; marked-neck tip collision still invokes DefeatStone.
+Cancel, room changes, defeat and reset retain their explicit cleanup paths. Existing mark-only severing unchanged.
+Compiled and saved only. No Play-mode or gameplay test.

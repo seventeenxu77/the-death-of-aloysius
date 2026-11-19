@@ -1,0 +1,7 @@
+2026-11-16T17:29:48.5584176+08:00
+Backup: ArtSource/PalaceCorridor/GalleryExtension_v001/level1-before-gallery-extension-20261116-172948.unity
+Gallery extension: 5.104972; end X: 34.10497
+Cabinet right X: 27.86042; depth entrance X: 30.43646
+Guard group shift left: 1.5; guard count: 3
+Floor, camera bounds, depth/return markers, sky, courtyard facade, garden and storm registrations updated.
+Original props stay in place. Return wing unchanged. No Play mode or tests.

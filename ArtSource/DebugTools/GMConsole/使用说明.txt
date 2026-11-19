@@ -1,0 +1,28 @@
+﻿GM 控制台
+游戏开始默认隐藏。按 Esc 下方的 · / ` / ~ 键开关；Esc 关闭。
+输入时暂停游戏并屏蔽人物操作，关闭后恢复原时间倍率。
+Enter 执行；Tab / Shift+Tab 补全；上下方向键浏览历史。
+
+help              查看所有命令
+help 2dtrans      查看传送命令说明
+2dtrans room      原房间
+2dtrans hall      镜厅入口
+2dtrans end       镜厅尽头
+2dtrans turn      纵深走廊
+2dtrans pass      密闭走廊
+2dtrans ante      前厅
+2dtrans bed       巨床寝宫
+history           查看本次运行的命令历史
+clear             清空日志
+close             关闭控制台
+
+Inspector：GM Console | backquote 对象上的 Level1TeleportConsole 组件。
+可调整开关键、输入时暂停、传送后关闭、字体大小、日志及历史容量。
+默认传送后保留控制台，方便连续执行命令；按 · 或 Esc 返回游戏。
+
+后续功能通过 console.RegisterCommand(name, usage, description, handler, completer) 注册。
+handler 接收 string[] 参数，返回 GMCommandResult.Ok(text) 或 Error(text)。
+completer 可省略，接收参数数组并返回参数补全候选。
+GMCommandRegistry 与界面解耦，不再为每个功能另外制作输入框。
+
+此次仅制作、接入并打包，不进入 Play、不运行游戏、不执行测试。

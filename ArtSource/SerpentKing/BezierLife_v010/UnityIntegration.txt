@@ -1,0 +1,8 @@
+2026-11-18T16:07:51.7894019+08:00
+Serpent King | black gold timed wake | frequency=1.35 | drawBed=True | sorting=0 | exposure=1
+02 Distant Serpent King | independent skeletal body | frequency=1.35 | drawBed=False | sorting=-40 | exposure=0.28
+Wake duration=20; head cues=1, 5.5, 12, 17
+Music preserved: SerpentHeads_Full; full=True
+All four heads synchronous. Venom rear head +200 source-pixels. Root, bed, coils, room transforms and depth sorting retained.
+Independent native curve meshes, eyelid masks, Fang tongue, Stone nod, Venom sac pulses, Time blink/nod. Stone ceiling override retained.
+No Play-mode test or gameplay automation performed.

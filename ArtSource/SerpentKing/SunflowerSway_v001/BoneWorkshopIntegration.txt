@@ -1,0 +1,2 @@
+2026-11-18T00:10:08.3865147+08:00
+Created saved 46 Transform bones, 6 native SkinnedMeshRenderers, 5 weighted meshes and an editable AnimationClip. No pose-writing scripts on the workshop rig. Procedural idle disabled on both game skins. No Play mode run.

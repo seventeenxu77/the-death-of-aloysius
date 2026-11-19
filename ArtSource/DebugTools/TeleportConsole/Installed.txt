@@ -1,0 +1,6 @@
+2026-11-16T16:13:19.6131197+08:00
+Scene: Assets/Scenes/level1.unity
+Backup: ArtSource/DebugTools/TeleportConsole/level1-before-2dtrans-20261116-161319.unity
+F1 console: 2dtrans room/hall/end/turn/pass/ante/bed.
+Input gated; Escape closes console without quitting; existing furniture placements retained.
+No Play mode or tests.

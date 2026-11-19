@@ -1,0 +1,4 @@
+2026-11-18T17:31:58.1646094+08:00
+Saved level1. User-approved black semicircle, warm-gold contour, long rod and round wine-red grip.
+Base width=1 m; rod=.82 m; low pivot=.13 m. Lever hand retarget follows the grip.
+Ground marker=(54.91, -30.23, 0.00); outlet=(53.20, -25.68, 0.00). Existing E interaction, leftward stroke and firing cue preserved. No Play mode.

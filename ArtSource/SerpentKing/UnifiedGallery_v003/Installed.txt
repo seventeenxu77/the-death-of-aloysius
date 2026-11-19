@@ -1,0 +1,7 @@
+2026-11-16T15:53:37.4019399+08:00
+Live backup: ArtSource/SerpentKing/UnifiedGallery_v003/level1-before-unified-gallery-20261116-155336.unity
+Continuous gallery and turn replace both old gallery modules and pasted entrance.
+Depth path lies in original gallery coordinates. Old remote depth backdrop disabled.
+Separate sky / opposite closed wing / midcourt trees / near hedges / glass architecture.
+Original floor, props, player, guards and original pipe kept. Storm renderer registrations updated.
+No Play mode or tests.

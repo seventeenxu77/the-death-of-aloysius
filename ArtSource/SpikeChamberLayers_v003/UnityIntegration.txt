@@ -1,0 +1,7 @@
+2026-11-17T20:58:13.2583984+08:00
+Saved: Assets/Scenes/level1.unity
+Depth order: far hall -60; skinned king -40; middle arcade -30; near overhead arches -12; gallery/stairs -5; carpet -3; actor 20..31; foreground lip 32; near pillar/wall 33.
+Far king width 13.5m, 46 bones, no bed. Approved black/gold assets reused with exposure 0.28 and independent idle motion.
+Far/middle/king parallax: 0.055 / 0.018 / 0.035. Existing staircase support, spike, switch, doorway, bounds and camera frame unchanged.
+Foreground partitioned into six registered sprite crops. Far plate inpainted; middle arcade extracted with alpha.
+No Play-mode test.

@@ -1,0 +1,7 @@
+2026-11-17T19:30:31.2248231+08:00
+Saved: Assets/Scenes/level1.unity
+Wake root: Serpent King | black gold timed wake
+46 bones; four independent complete neck skins; shared front/back coils; localized eyes only.
+Starts: 1 / 5.5 / 12 / 17 s; finished: 20 s; music: Assets/Art/SerpentKing/BedWake_v023/SerpentHeads_First25s.wav
+Music cutoff: 25 s. FullyOpen trigger and existing combat transition retained. Post-wake idle continues with eyes open.
+No Play-mode test.

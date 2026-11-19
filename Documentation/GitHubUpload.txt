@@ -1,0 +1,22 @@
+GitHub 上传与项目恢复说明
+
+Unity 编辑器版本：2022.3.62f2c1，以 ProjectSettings/ProjectVersion.txt 为准。
+
+需要上传的主体：Assets（连同 .meta）、Packages、ProjectSettings、.gitignore、.gitattributes。
+ArtSource 保留美术原稿、拆件、骨骼、动画数据与 HTML 编辑器。
+Documentation/RoyalArchitectureEditor 保留网页编辑器本体、data、model、vendor 和 references。
+
+无需上传且已忽略：Library、Temp、Logs、Builds、UserSettings、Exports、网页 qa 缓存、Python 缓存、ArtSource 场景备份。
+忽略只影响 Git，不代表这些本地文件已删除。
+Exports 中给他人学习的主角资料仍留在本地；如要分享，请单独发送或作为独立交付物发布。
+
+本项目已配置 Git LFS。图片、音频、视频等沿用 .gitattributes 中的 LFS 规则。
+Assets/Scenes/royal Scene.unity 约 123 MiB，已单独配置 LFS。
+请使用安装了 Git LFS 的 Git 客户端或 GitHub Desktop 添加和推送项目，不要依赖网页拖拽整个文件夹。
+克隆后如素材显示为很小的文本指针文件，运行 git lfs pull 下载真实素材。
+
+项目仓库：https://github.com/seventeenxu77/the-death-of-aloysius
+上传前用 git status 核对清单；本机 VS Code 设置、缓存和独立导出包由 .gitignore 排除。
+已按用户确认的清单删除约 3.11 GiB 的日志、网页测试缓存、场景备份和临时验证文件。
+Builds、主角交付包和 Library 仍保留在本地。五个场景及其 .meta 文件删除前后哈希一致；保留文件无缺失。
+场景、角色、骨骼与动画没有修改；没有运行 Play 模式测试。

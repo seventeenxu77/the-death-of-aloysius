@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#183743">
+  <title>Royal · 宫殿建筑编辑器</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">{"imports":{"three":"./vendor/three.module.js","three/addons/":"./vendor/addons/"}}</script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">R</span><div><strong>ROYAL <span>建筑编辑器</span></strong><small>空间 · 结构 · 路径</small></div></div>
+    <div class="project-name"><span class="project-dot"></span><b>royal Scene</b><span class="project-sub">三维设计副本</span></div>
+    <div class="layout-buttons"><button id="toggleHierarchy" title="显示 / 收起建筑层级" aria-pressed="true">层级</button><button id="toggleInspector" title="显示 / 收起对象属性" aria-pressed="true">属性</button></div>
+    <div class="top-actions"><span id="saveStatus" class="save-status" role="status">正在连接…</span><button id="saveBtn" class="primary" title="保存到本地项目服务 · Ctrl+S">保存</button><button id="filesBtn" aria-expanded="false">文件 <span class="chevron">⌄</span></button><button id="helpBtn" class="icon-button" title="使用帮助" aria-label="使用帮助">?</button></div>
+    <div id="fileMenu" class="dropdown hidden"><button id="exportBtn">导出修改 JSON</button><button id="importBtn">导入修改 JSON</button><button id="pngBtn">导出当前视图 PNG</button><a href="/atlas/" target="_blank" rel="noopener">打开原剖面图册 ↗</a></div>
+  </header>
+  <div id="connectionBanner" class="banner hidden" role="alert"><span id="connectionMessage"></span><button id="retryBtn">重新连接</button><button id="conflictExportBtn" class="hidden">导出本地修改</button><button id="loadServerBtn" class="hidden">加载服务器版本</button></div>
+  <main class="workspace">
+    <aside class="left-panel panel">
+      <div class="panel-title"><h2>建筑层级</h2><span id="nodeCount" class="count">—</span><button id="collapseTree" class="icon-button" title="收起全部层级" aria-label="收起全部层级">⊟</button></div>
+      <label class="search"><span>⌕</span><input id="treeSearch" type="search" placeholder="搜索房间、墙体或门…" autocomplete="off"></label>
+      <div class="tree-controls"><label>拾取<select id="selectionScope"><option value="component">单个构件</option><option value="room">所属房间</option><option value="district">所属套院</option><option value="floor">所属楼层</option><option value="region">所属区域</option></select></label><button id="revealSelection" title="在层级中定位当前选择">定位选择</button></div>
+      <div id="tree" class="tree" role="tree" aria-label="场景建筑层级" tabindex="0"></div>
+      <div class="panel-foot"><span class="gold-dot"></span>在画面点击构件，或展开层级选择整体</div>
+    </aside>
+    <section class="viewport-shell" aria-label="三维建筑编辑区">
+      <div class="viewport-toolbar">
+        <div class="tool-group" aria-label="变换工具"><button class="tool active" data-tool="translate" title="移动 · W"><span>↔</span>移动<kbd>W</kbd></button><button class="tool" data-tool="rotate" title="旋转 · E"><span>⟳</span>旋转<kbd>E</kbd></button><button class="tool" data-tool="scale" title="缩放 · R"><span>⤢</span>缩放<kbd>R</kbd></button></div>
+        <span class="tool-separator"></span><button id="undoBtn" class="icon-button" disabled title="撤销 · Ctrl+Z" aria-label="撤销">↶</button><button id="redoBtn" class="icon-button" disabled title="重做 · Ctrl+Shift+Z" aria-label="重做">↷</button>
+        <span class="tool-separator"></span><label class="compact-select"><select id="spaceMode" aria-label="变换坐标空间"><option value="world">世界坐标</option><option value="local">局部坐标</option></select></label><label class="toggle-inline"><input id="snapToggle" type="checkbox">吸附</label><select id="snapStep" title="平移吸附步长" aria-label="平移吸附步长"><option value="0.25">0.25 m</option><option value="0.5" selected>0.5 m</option><option value="1">1 m</option></select>
+      </div>
+      <div id="viewport">
+        <div id="viewLabel" class="view-label"><b>宫殿总览</b><span>透视 / 真实模型</span></div>
+        <div id="selectionLabel" class="selection-label hidden" role="status" aria-live="polite"><div class="selection-label-content"><span id="selectionLabelKind" class="selection-label-kind"></span><strong id="selectionLabelName"></strong><span id="selectionLabelDetail" class="selection-label-detail"></span></div><button id="selectionLabelFocus" title="聚焦所选区域 · F" aria-label="聚焦所选区域">聚焦 <kbd>F</kbd></button></div>
+        <div class="view-buttons"><button data-view="iso" class="active" title="轴测方向">立体</button><button data-view="top" title="从上向下看">俯视</button><button data-view="front" title="建筑正面">正视</button><button id="frameAll" title="显示完整建筑">全景</button></div>
+        <div id="emptySelection" class="canvas-hint">点击建筑选择对象 <span>·</span> 拖动彩色坐标轴修改空间</div>
+        <div id="selectionCrumbs" class="selection-crumbs hidden"></div>
+        <div id="autoWallsStatus" class="auto-walls-status hidden" role="status" aria-live="polite"></div>
+        <div class="navigation-hint"><span>左键拖动 环绕</span><span>右键拖动 平移</span><span>滚轮 缩放</span><span><kbd>F</kbd> 聚焦</span></div>
+        <div id="loading" class="loading"><div class="loading-logo">R</div><h2>正在展开宫殿</h2><p id="loadingText">读取模型与已保存的设计…</p><div class="loading-line"></div></div>
+      </div>
+      <div class="view-settings"><label>楼层<select id="floorFilter"><option value="all">全部楼层</option><option value="B1">负一层</option><option value="F1">一楼</option><option value="F2">二楼及错层</option></select></label><label class="toggle-inline wall-visibility-toggle" title="临时隐藏镜头与观察中心之间的竖直墙面，随视角更新。选中房间按 F 聚焦更方便；关闭后恢复。"><input id="autoWallsToggle" type="checkbox">自动隐藏近侧墙</label><label class="toggle-inline"><input id="roofToggle" type="checkbox">显示屋顶</label><label class="toggle-inline"><input id="gridToggle" type="checkbox" checked>网格</label><span class="tool-separator"></span><label class="toggle-inline"><input id="sectionToggle" type="checkbox">水平剖切</label><input id="sectionHeight" type="range" min="-12" max="40" step="0.1" value="20" aria-label="剖切高度"><label class="height-input"><input id="sectionValue" type="number" step="0.1" value="20" aria-label="剖切高度数值"><span>m</span></label></div>
+    </section>
+    <aside class="right-panel panel">
+      <div class="right-tabs"><button class="active" data-tab="properties">对象属性</button><button data-tab="changes">变更 <span id="changeCount">0</span></button></div>
+      <div id="propertiesTab" class="right-content">
+        <div id="noSelection" class="empty-state"><div class="empty-symbol">◇</div><h3>选择一个空间</h3><p>墙体、房间、套院与楼层均可选择。选择父级后，子构件会一起移动。</p><button id="selectRootBtn">选择建筑根节点</button></div>
+        <div id="selectionProperties" class="hidden">
+          <div class="object-heading"><span id="objectKind" class="kind-badge">构件</span><span id="objectId" class="object-id"></span></div>
+          <label class="field-label">名称<input id="objectName" type="text" maxlength="160"></label>
+          <div id="objectPath" class="object-path"></div>
+          <div class="property-actions"><button id="focusBtn">聚焦 <kbd>F</kbd></button><button id="parentBtn">选择父级 ↑</button><button id="hideBtn">隐藏</button></div>
+          <div id="visibilityHint" class="small-note hidden"></div>
+          <div class="section-heading"><h3>局部变换</h3><span>Unity 坐标 · 米 / 度</span></div>
+          <div id="transformFields"></div>
+          <div class="dimension-readout"><span>世界包围盒</span><strong id="objectDimensions">—</strong></div>
+          <div class="property-actions"><button id="resetTransformBtn">还原此对象变换</button><button id="resetObjectBtn" class="text-button">清除所有修改</button></div>
+          <div class="section-heading"><h3>设计批注</h3></div><textarea id="objectNote" rows="4" placeholder="例如：此墙向后移 2 米，为机关留空间…"></textarea>
+          <p class="small-note">批注与变换一起保存在设计文件中，方便继续讨论。</p>
+          <div class="section-heading"><h3>包含的空间</h3><span id="childCount">0</span></div><div id="childrenList" class="children-list"></div>
+        </div>
+      </div>
+      <div id="changesTab" class="right-content hidden"><div class="section-heading"><h3>本次设计相对原模型</h3><button id="showAllBtn" class="text-button">恢复隐藏</button></div><div id="changesList"></div><div class="section-heading"><h3>整体设计说明</h3></div><textarea id="projectNotes" rows="5" placeholder="记录本次调整目标，之后可以继续和我讨论…"></textarea><p class="small-note">修改保存为独立设计数据。当前不会回写 Unity 场景。</p></div>
+      <div class="panel-foot"><span id="revisionText">版本 —</span><span>本地项目持久保存</span></div>
+    </aside>
+  </main>
+  <footer class="statusbar"><span id="modelStatus">正在读取建筑…</span><span id="selectionStatus">未选择对象</span><span class="status-end">Y 向上 <span class="gold-dot"></span> 1 单位 = 1 米</span></footer>
+  <input id="importFile" type="file" accept=".json,application/json" hidden>
+  <div id="toast" class="toast hidden" role="status"></div>
+  <dialog id="helpDialog"><button class="dialog-close" data-close aria-label="关闭">×</button><p class="eyebrow">ROYAL / 操作指南</p><h2>直接调整宫殿的空间</h2><div class="help-grid"><div><h3>看建筑</h3><p>左键拖动环绕，右键拖动平移，滚轮缩放。按 F 聚焦选择。用底部楼层、屋顶和剖切设置查看内部。</p></div><div><h3>改结构</h3><p>单击选中构件，或在左侧选择房间、套院、楼层。W 移动、E 旋转、R 缩放；拖动彩色轴，或在右侧输入数值。</p></div><div><h3>保留修改</h3><p>自动保存到本地项目服务。Ctrl+S 立即保存，Ctrl+Z 撤销，Ctrl+Shift+Z 重做。JSON 可导出备份和再次导入。</p></div><div><h3>继续讨论</h3><p>对象批注与整体说明保存在同一设计数据中。模型是当前 Unity 场景的三维副本，编辑暂不回写 Unity。</p></div></div><p class="dialog-note">右侧数值使用 Unity 局部坐标。楼层筛选和水平剖切仅改变查看方式；“隐藏”会成为保存的对象修改。</p><button class="primary" data-close>开始编辑</button></dialog>
+  <dialog id="backupDialog"><h2>发现未同步的本地修改</h2><p id="backupMessage"></p><div class="dialog-actions"><button id="downloadBackup">导出备份</button><button id="discardBackup">使用服务器版本</button><button id="restoreBackup" class="primary">恢复本地修改</button></div></dialog>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

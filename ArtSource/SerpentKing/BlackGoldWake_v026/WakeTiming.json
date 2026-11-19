@@ -1,0 +1,37 @@
+{
+  "version": 26,
+  "heads": [
+    {
+      "name": "Venom",
+      "start": 5.5,
+      "duration": 2.8,
+      "eyeDelay": 0.05,
+      "eyeDuration": 0.18,
+      "idle": 1
+    },
+    {
+      "name": "Stone",
+      "start": 12,
+      "duration": 2.8,
+      "eyeDelay": 0.05,
+      "eyeDuration": 0.18,
+      "idle": 1
+    },
+    {
+      "name": "Fang",
+      "start": 1,
+      "duration": 2.8,
+      "eyeDelay": 0.05,
+      "eyeDuration": 0.18,
+      "idle": 1
+    },
+    {
+      "name": "Time",
+      "start": 17,
+      "duration": 2.6,
+      "eyeDelay": 0.05,
+      "eyeDuration": 0.18,
+      "idle": 1
+    }
+  ]
+}

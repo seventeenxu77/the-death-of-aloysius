@@ -1,0 +1,7 @@
+2026-11-17T20:00:11.8324101+08:00
+Saved: Assets/Scenes/level1.unity
+Floor centre: (43.80, -2.23, 0.00); hit width: 2.4; passage width: 1.7
+Approved intact/crater artwork sampled only in local floor patch. Native mesh dust and ballistic debris; no video playback.
+Stone impact triggers once; passage unlocks after 0.85 seconds; airborne player cannot enter by X coordinate alone.
+Walking over opening -> falling pose/gravity -> fade -> spike at (51.49, -30.23, 0.00)
+Chapter restart restores intact floor. Existing room placement/camera/stone combat retained. No Play-mode test.

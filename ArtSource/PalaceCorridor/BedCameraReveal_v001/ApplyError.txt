@@ -1,0 +1,3 @@
+System.InvalidOperationException: Already installed; preserve user adjustments.
+  at Aloysius.Level1.Editor.Level1BedCameraRevealEditor.Apply () [0x0022a] in D:\the death of aloysius\the death of aloysius\Assets\Scripts\Level1\Editor\Level1BedCameraRevealEditor.cs:56 
+  at Aloysius.Level1.Editor.Level1BedCameraRevealEditor.Poll () [0x0005c] in D:\the death of aloysius\the death of aloysius\Assets\Scripts\Level1\Editor\Level1BedCameraRevealEditor.cs:26 

@@ -1,0 +1,4 @@
+2026-11-16T16:57:58.6140432+08:00
+Playing=False Paused=False Focus=UnityEditor.SceneView
+ConsoleCount=1
+Scene=Assets/Scenes/level1.unity Active=True Enabled=True Key=96 Object=GM Console | backquote Visible=False

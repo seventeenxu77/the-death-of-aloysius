@@ -1,0 +1,10 @@
+2026-11-18T20:50:32.2949510+08:00
+Saved: Assets/Scenes/level1.unity
+Death trigger: spear TIP only intersects the four-diamond patch during Strike/Impact; body/face/shaft contact cannot defeat it.
+Weak point: source (586,466), size (118,156). Collider and displayed rigid mark share the same skin mapping; swept mark and swept tip avoid fast-stroke tunnelling.
+Impact neck compression aligns the real mark with the existing outlet height; keeps rigid skull proportions and floor contact. Limit and coordinates exposed in Inspector.
+Cut: original source y=640 with complementary jagged red edges. Falling head snapshots the SAME deformed mesh/UV/art at hit time, not a replacement illustration.
+Head tumbles and drops; near neck withdraws .85 s, far Stone branch withdraws .9 s; approved 65-joint fixed-root whip fades in .35 s and emits moving wound droplets.
+Far whip root=(6.50, -8.70, 0.00); native 0.78 Hz; scale=.005; sorting=-37; exposure=0.28. Other three heads and shared coils retained.
+Death persists on room transitions/checkpoint respawn. Chapter reset removes corpse/blood and restores the Stone branch. Existing E lever, outlet placement, stairs and exit retained.
+Compile / data / reference validation only. No Play mode, gameplay simulation, screenshot or render test.

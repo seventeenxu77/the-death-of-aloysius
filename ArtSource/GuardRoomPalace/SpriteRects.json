@@ -1,0 +1,37 @@
+{
+  "slices": [
+    {
+      "name": "Bed",
+      "x": 246,
+      "y": 133,
+      "width": 1676,
+      "height": 434,
+      "localMinX": -2.54,
+      "localMinY": 1.0000000116860974e-09,
+      "localWidth": 5.08,
+      "localHeight": 1.17
+    },
+    {
+      "name": "Door",
+      "x": 92,
+      "y": 111,
+      "width": 646,
+      "height": 1653,
+      "localMinX": -1.305,
+      "localMinY": -1.6400000113492298e-09,
+      "localWidth": 2.61,
+      "localHeight": 5.68
+    },
+    {
+      "name": "Window",
+      "x": 204,
+      "y": 267,
+      "width": 703,
+      "height": 918,
+      "localMinX": -1.01,
+      "localMinY": 3.3999999971001672e-09,
+      "localWidth": 2.02,
+      "localHeight": 2.71
+    }
+  ]
+}

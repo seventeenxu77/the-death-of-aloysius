@@ -1,0 +1,5 @@
+2026-11-16T17:06:55.7727947+08:00
+Backup: ArtSource/PalaceCorridor/EnclosedWingStairs_v002/level1-before-stair-revision-20261116-170655.unity
+Only left architecture section replaced. Right windows/landscape/foreground entry unchanged.
+Narrow stairs, occluded side-facing doorway, aligned upper landing; support line and doorway/spawn markers updated.
+Door E interaction requires upper-landing height within 0.20 units. No Play mode or tests.

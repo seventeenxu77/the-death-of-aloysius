@@ -1,0 +1,6 @@
+Assets/Art/SerpentKing/BedWake_v023
+Assets/Art/SerpentKing/StoneSlam_v025
+Assets/Art/SerpentKing/FloorBreak_v001/Before.png
+Assets/Art/SerpentKing/FloorBreak_v001/After.png
+Assets/Art/SerpentKing/FloorBreak_v001/Floor.mat
+Assets/Art/SerpentKing/FloorBreak_v001/FloorBreak.shader

@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Fang
+  m_Shader: {fileID: 4800000, guid: 8a3d8366e2631d34e82d02753d49c819, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _ClosedTex:
+        m_Texture: {fileID: 2800000, guid: 2fe26945bf8098c418b9d51d20d4c484, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 7d191b7df56406845b15dbf1c2854f9f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ClosedEye: 0
+    - _Exposure: 1
+    - _Front: 0
+    - _RoofClipEnabled: 0
+    - _RoofY: 1000
+    - _Roots: 1
+    m_Colors:
+    - _Eye0: {r: 0, g: 0, b: 0, a: 0}
+    - _Eye1: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []

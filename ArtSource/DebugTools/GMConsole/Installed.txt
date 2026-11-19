@@ -1,0 +1,6 @@
+2026-11-16T16:16:11.9406496+08:00
+Scene: Assets/Scenes/level1.unity
+Backup: ArtSource/DebugTools/GMConsole/level1-before-GM-20261116-161611.unity
+Backquote GM console: 2dtrans room/hall/end/turn/pass/ante/bed.
+Input gated; Escape closes console without quitting; existing furniture placements retained.
+No Play mode or tests.

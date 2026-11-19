@@ -1,0 +1,237 @@
+﻿level1 场景制作记录
+
+场景：Assets/Scenes/level1.unity
+试玩：根目录 PlayLevel1.cmd
+
+1. 复用角色
+   从 Gothic_Theatre_Bride_Walk 场景复制已确认的二维人物。
+   保留 35 根骨骼、12 个蒙皮分件以及 ApprovedWalk / SprintRun 动作引用。
+   操作：A/D 或左右方向键行走，左/右 Shift 加方向键疾跑，空格跳跃，R 回到初始位置。
+   独立游戏按 Esc 退出。转身仍使用收窄、换面、展开和服饰延迟。
+
+2. 导入房间
+   原图：exec-16721503-72cc-4781-b365-533aefbf22ca.png。
+   项目内图片：Assets/Art/Textures/Level1/GuardRoom_Empty.png。
+   原始 1672 × 941 PNG 原样复制，使用普通 Texture2D，不压缩、不生成 mipmap，
+   关闭非 2 次幂尺寸自动缩放，避免改变图片比例。
+   房间平面尺寸：10 × 5.62799；全图用于背景，家具作为独立 Sprite 放置在 Props 下。
+   图片第 844 行作为地面线，对应世界 Y = -2.233852。
+
+3. 布置人物与边界
+   初始坐标：(0, -2.233852, 0)，人物保持原始比例。
+   背景在 Z = 2，人物在其前方。
+   行走范围：X = -3.5 至 +3.5，由现有人物控制器限制。
+   留出面纱、裙摆和转身展开的空间。
+
+4. 暗场处理
+   Lighting | adjustable darkness 对象上的 Level1Lighting 控制场景明暗。
+   Darkness 默认 0.84；0 最亮，1 为全黑。
+   Edge Shadow 默认 0.60：背景四周的暗部强度。
+   Character Light 默认 0.80：人物相对于房间亮度的系数。
+   使用独立背景 shader 和独立人物材质，调节未受灯光影响的二维贴图。
+   这是原图的整体暗化与边缘阴影，并非把图片拆层后的动态灯光投影。
+   可直接在 Inspector 调整，编辑模式和运行模式均应用。
+
+5. 镜头与无 UI
+   固定正交全景镜头，按窗口比例容纳完整房间；多余区域为黑色。
+   场景没有 Canvas、EventSystem、OnGUI 提示或原来的操作说明组件。
+   不使用旧镜头的 Tab/滚轮缩放；画面始终显示整个房间。
+   独立游戏使用正式构建，不含 Development Build 调试角标。
+
+6. 检查结果
+   Unity 场景检查通过：35 骨骼 / 12 分件，引用完整，没有缺失脚本。
+   控制器逻辑检查通过：行走、疾跑、走跑切换、停步、反向转身和左右边界。
+   全黑参数同时作用于背景和人物；转身保留曝光参数。
+   生成和构建使用 Logs/SprintValidationProject 临时副本，交付资源已复制回原项目。
+   构建清单末尾新增 level1，独立 Level1 游戏只包含 level1 场景。
+   记录：Logs/Level1/Validation.json、BuildResult.json、Delivery.json。
+   键盘硬件输入没有自动模拟；实际操作手感与暗度由游戏试玩确认。
+
+7. 新增资源位置
+   Assets/Scenes/level1.unity
+   Assets/Scripts/Level1/：暗度控制、无 UI 固定镜头、人物接触箱及家具接触高亮。
+   Assets/Art/Textures/Level1/：房间原图与家具透明图集。
+   Assets/Art/Meshes/Level1/：房间平面。
+   Assets/Art/Shaders/Level1/：背景及人物暗化 shader、家具轮廓高亮 shader。
+   Assets/Art/Materials/Level1/：背景材质、12 个人物分件材质、3 个家具材质。
+   Builds/Level1/：独立试玩版本。
+   Logs/Level1/：本次构建、检查、交付记录及临时制作脚本。
+
+8. 2026-11-12：加入跳跃
+   空格按下触发一次跳跃，支持站立、行走和疾跑起跳。
+   空中可用 A/D 调整水平运动；空中反向时保留跳跃姿态，落地后完成转身。
+   按住空格不会自动连跳，空中再次按下不会触发二段跳。
+   转身时按空格，会在当前转身结束后起跳。R 可在空中复位。
+   Player 的 GothicBride2DWalker 组件增加 Jump 参数：
+     Jump Height = 1：人物根节点最高上升 1 个单位。
+     Jump Gravity = 14：重力；当前腾空时间约 0.756 秒。
+     Jump Anticipation = 0.10 秒：下蹲和蹬地准备。
+     Jump Landing = 0.18 秒：落地压缩和恢复。
+   六个独立骨骼姿势保存在 Assets/Data/GothicStage/Jump.asset，
+   由 ApprovedWalk 的 jump 字段引用，包含腿部、上身、手臂和服饰姿势。
+   新增 GothicBrideJumpMotion.cs 负责跳跃状态、重力轨迹、姿势插值与脚底 IK。
+   当前跳跃支持房间地面及床面单向承接，并沿用控制器左右边界。
+   Logs/Jump/Validation.json 记录控制器逻辑测试：原地/走/跑跳、禁止二段跳、
+   转身衔接、空中反向、边界、空中复位、地面接触、固定骨长和无 UI。
+   30/60/120 Hz 最高点分别约 0.99911 / 0.99980 / 0.99994 个单位。
+   这批检查通过控制器输入接口执行，未自动模拟硬件空格键。
+
+9. 2026-11-12：加入床、窗户、门及接触轮廓高亮
+   Hierarchy > Props：三个独立 Sprite，不合并到房间背景。
+     Bed：左侧 X=-2.85，落在地面线上，可见宽度 2.5，约为房间宽度四分之一。
+     Window：墙上 X=0.35，底部比地面高 1.85，可见宽度 1.05；在窗下跳起可以触碰。
+     Door：右侧 X=3.4，底部落在地面线上，可见宽度 1.1；保留一个小把手。
+   家具排序在人物后、房间前。保持原画的简洁黑色剪影。
+   每件家具都有 BoxCollider2D、SpriteRenderer、Level1PropHighlight。
+   Player 增加 Kinematic Rigidbody2D、BoxCollider2D、Level1PlayerContactBody。
+   人物接触箱按头部和双脚的姿势更新高度，不把长面纱和拖尾当作身体。
+   家具主体碰撞箱用于接触触发，不阻挡人物；床另外配置了可以站立的单向床面。
+   每帧动画更新后同步 Physics2D，以真实碰撞箱距离及边界判断接触。
+   边界检查排除物理引擎 polygon skin 带来的提前触发，仅保留 0.002 的数值容差。
+   接触时以浅金色细线沿透明图片轮廓高亮，接触框本身不会被画出来。
+   默认描边厚度 2.5 个纹理像素，进出渐变时间 0.08 秒。
+   材质 Prop_Bed / Prop_Window / Prop_Door 可分别调整 Outline Color、Outline Pixels。
+   家具与描边继承 Level1Lighting 的 Darkness；Darkness=1 时全黑。
+   原有 A/D、Shift、Space、转身和 R 复位保留，没有新增游戏 UI。
+   素材来源、完整生图提示词及切片参数见 ArtSource/Level1Props/Provenance.txt。
+   Logs/Props/Validation.json：行走接触、跳跃接触、分离、精确边界、禁用碰撞箱、
+   复位、曝光参数互相保留、全黑、原有操作、无 UI，以及 GPU 描边像素检查。
+   运行验证使用真实控制器 API 和 Physics2D；没有自动按下硬件键盘。
+
+10. 2026-11-12：弯腰拖动床
+    Props/Bed 的 Unity Tag 为 Draggable，新增 Level1Draggable 组件。
+    Player 新增 Level1DragController；门和窗户不带 Draggable 标签。
+    操作：走到床旁触发接触高亮，按住 E。人物自动正常步行到最近的可站立端，
+    停稳并朝向床沿后，蹲下伸手抓住；保持 E，按 A/D 移动床，松开 E 放手起身。
+    拖动时朝向保持在床一侧；反向移动采用后退步态，不会突然镜像转身。
+    抓握约 0.32 秒，松手恢复约 0.25 秒，拖动速度 0.38 单位/秒。
+    床与人物逐帧移动相同距离，床不离开地面；两端受房间 X=-4.6 / +4.6 限制。
+    人物仍受原有 X=-3.5 / +3.5 的活动边界限制。
+    靠墙的一端如果没有站位空间，会自动选取另一端。
+    拖动期间 Shift 不会加速；按空格先放手起身，再执行跳跃。
+    R 同时将人物和床恢复到初始位置；按住 E 不会在空中重新抓住床。
+    抓握保持期间，床继续显示轮廓高亮，即使站位超出身体接触箱也不会闪烁。
+    GothicBrideDragMotion 使用现有骨骼，髋部下沉、躯干前屈、双臂 IK 固定到床沿。
+    双腿以实际位移驱动交替支撑和摆动，保持腿长，过渡时修正脚底穿地。
+    原有行走/疾跑/跳跃动作数据保持不变；普通运动仍由原有控制器执行。
+    Logs/Drag/Validation.json 记录标签、接触前提、抓握、双腿交替、着地滑步、
+    手部误差、同步移动、反向移动、松手、跳跃取消、复位、左右侧抓握和边界检查。
+    Logs/Drag/JumpRegression.json 记录原有行走/疾跑/转身/跳跃的回归检查。
+    检查通过控制器 API 与真实骨骼/碰撞数据执行；实际键盘手感由试玩确认。
+
+11. 2026-11-12：自动走到最近端，床面单向承接
+    修复抓取前使用零动作权重移动角色导致的平移感：导航调用原有行走、减速和转身。
+    比较床两端的站位距离，排除超出人物活动范围的位置，选择最近的可到达端。
+    导航完成、人物落地并停稳后才开始蹲下；导航中松开 E 或按空格可以取消。
+    蹲下时髋部降低、膝盖弯曲，躯干前倾；双手仍通过 IK 固定在床沿。
+    床保留原来的主体触发箱用于接触/高亮，左右经过始终不产生实体阻挡。
+    Props/Bed/Top | one-way standing surface 是单独的床面检测箱，随床移动。
+    人物采用脚本驱动的运动，因此该箱使用 Trigger，由控制器负责单向碰撞解析，
+    而非将人物改成 Dynamic Rigidbody2D；仅在脚底基准从上往下跨过床面时承接。
+    从下往上穿过床面不会被挡；从侧面进入床下不会自动被抬高。
+    床面高度设置为家具主体高度的 80%；可在该子物体 Transform/BoxCollider2D 调整。
+    人物落在床面后使用床面作为地面，可以站立、走动、转身及再次跳跃。
+    走出床沿会下落回房间地面；床面被禁用时，人物也会下落。
+    在床上按住 E，会先走向最近端、走下床并落地，再朝向床沿蹲下抓取。
+    R 清除当前床面支撑状态，同时恢复人物及床的初始位置。
+    Logs/BedNavigation/Validation.json：自动步行动作、最近端选择、贴墙端回退、
+    导航取消、蹲下抓握、左右穿过、从下穿过、落床、站床、床上再跳、走下床、
+    床上发起拖拽、禁用床面和复位；包含 30/60/120 Hz 落床高度检查。
+    Logs/BedNavigation/JumpRegression.json：原有行走/疾跑/转身/跳跃回归检查。
+
+12. 蛇皮管道右上角摆放预览
+    Props/Snakeskin Pipe | upper right：已确认的暗金色鳞片版本，独立透明 Sprite。
+    最新位置按人物地面起跳的手部高度校准，取代此前距天花板四分之一的摆放。
+    用户随后自行调整了位置与比例；本次动作接入保留用户保存的布局。
+    当前管道位置约 (3.37, 1.08, 0.9)，缩放约 (0.385007, 0.480751, 0.322284)。
+    按当前图像定位的左侧下沿抓握点约 (1.635, 0.758)，内径约 0.771。
+    当前位置可以把床移到下方后，从床面跳起抓住边缘。
+    超宽画面会扩大相机水平视野，当前布局不承诺所有宽高比都隐藏右端。
+    当前校准数据见 Logs/PipeReach/Placement.json；此前位置记录见 Logs/GoldPipePlacement/Placement.json。
+    材质 Snakeskin_Pipe 继承房间 Darkness；当前仅用于看摆放效果，没有新增碰撞或交互。
+    原图保存在 Assets/Art/Textures/Level1/Snakeskin_Pipe.png。
+    生成来源及提示词见 ArtSource/Level1Props/SnakeskinSource.txt。
+    暗金色版本来源与提示词见 ArtSource/Level1Props/SnakeskinGoldRevision.txt。
+    管道下的 Grip edge | ground jump apex 是手部对齐参考点，不显示游戏 UI。
+    之前的纯布局校准现已接入匍匐、双手悬挂和上拉进入动作，详见下一节。
+
+13. 匍匐前进与双手悬挂上拉趴入（两套动作）
+    继续使用原有 35 根骨骼和蒙皮分件，没有把角色替换成序列图或三维模型。
+    GothicBrideTraversalMotion：匍匐循环、双臂 IK 抓握、上拉与进入姿态、衣物随动。
+    Level1TraversalController：两套动作的状态和输入，由现有 Level1DragController 调度。
+    C + A/D：趴下后前后匍匐；松开 C 起身。匍匐保持当前朝向，反向键为后退。
+    跳跃时按住 E：双肩能伸手够到管口时，先伸手抓住，再下沉为双手悬挂。
+    悬挂后按 W 或空格：屈臂上拉、胸腹过沿、髋部移入、收腿，最终进入管内匍匐。
+    前半段双手固定；身体获得支撑后，两只手先后松开向管内移动。
+    进入管内后直接用 A/D 前进或后退，保持低姿势；退到入口会重新转为悬挂。
+    S：从悬挂或上拉状态放手下落。管内不能直接掉落，需先按 A 退回左侧管口。R：人物、床及临时渲染顺序复位。
+    床拖动依然使用 E + A/D；与空中抓边分开判断，无新增游戏 UI。
+    默认时间：趴下 1.4 秒、起身 1.35 秒、伸手 0.12 秒、悬挂承重过渡 0.26 秒、上拉进入 1.9 秒。
+    默认匍匐速度 0.28 单位/秒。可在 Player 的 Level1TraversalController 调整 Crawl Speed、Pull Duration。
+    抓握点是管道的子物体，后续移动/缩放管道时会跟随；无需把管道改回旧位置。
+    攀入时管道渲染到人物前方，已进入管内的部分会被蛇皮遮住；复位后恢复原有顺序。
+    特殊姿态下人物接触箱跟随头、髋、手、脚，避免仍使用站立的窄高碰撞箱。
+    数据检查：趴姿头部/躯干高度约 0.571，当前管口内径约 0.771；骨骼长度保持固定。
+    匍匐支撑手的滑动误差和悬挂/上拉抓握误差小于 0.000001 个单位。
+    上拉全过程髋部提高约 1.02 个单位；与管内匍匐衔接时跟踪肢体位置连续性。
+    Logs/CrawlClimb/Validation.json：动作与当前布局检查；JumpRegression.json：原有动作回归检查。
+    CrawlFrames.json / MantleFrames.json：60 Hz 下采样的骨骼过渡数据，用于回看制作过程。
+    检查通过控制器 API、骨骼与蒙皮数据执行；硬件按键和最终动作观感仍需试玩确认。
+
+14. 站立到趴下动作重做（2026-11-12）
+    参考：FM 7-22，第 7-21 节，图 7-14，印刷页 7-10。
+    https://www.atu.edu/rotc/docs/aprt_7-22.pdf
+    查看了真人连续姿势照片：站立、蹲下撑手、前撑、降低身体。
+    游戏采用慢速改编：先屈膝下蹲并落手，再先后向后移腿，再屈肘降低胸腹。
+    原参考的双脚后蹬改为先后迈腿；这是角色动画设计，不是对参考的逐帧复制。
+    起身按支撑、收腿、蹲姿、伸膝的路径恢复。支撑阶段手的位置固定。
+    匍匐时调整肘、膝弯曲面，避免关节直接穿地；手掌朝向地面前方。
+    裙摆、面纱、头发和袖口的下缘增加地面贴合变形，避免布料穿地。
+    沿用原有二维图层及骨骼，没有改动用户保存的房间、床和管道布局。
+    检查：Logs/ProneRevision/SupportChecks.json 和 Logs/CrawlClimb/Validation.json。
+    实际蒙皮姿势预览在 Logs/ProneRevision/Review；临时骨架线不会出现在游戏里。
+    数值检查和静态蒙皮检查不能替代对连续动画观感的试玩确认。
+
+15. Inspector 拖动参数
+    选中人物 Player，在 Level1 Drag Controller 中调整：
+    Drag Speed：拖动最高速度，默认 0.38 单位/秒；脚步随实际位移匹配。
+    Drag Acceleration：拖动加减速度，默认 1.6 单位/秒²。
+    Grab Duration：到达站位后蹲下抓取的时间，默认 0.32 秒。
+    Release Duration：松手恢复时间，默认 0.25 秒。
+    Stand Off Distance：到物品抓取边缘的水平站位距离，默认 0.40 单位。
+    站位距离同时用于选择最近侧边和自动走到抓取位置；过大会超出手臂可达范围。
+    物品的左右移动边界仍在该物品的 Level1 Draggable 中调整 Left Bound / Right Bound。
+    在非 Play 模式修改并保存场景可保留设置；Play 模式内调参在停止后会还原。
+
+16. 管内视野
+    完成攀入并进入 InsidePipe 状态后，房间变为黑色，床、门窗淡出。
+    管道后方显示无鳞片纹理的淡金色内部底光；前方壳体淡化，只保留大体轮廓。
+    人物独立提亮，并按管道贴图的透明形状裁切；管道外的身体与衣物不可见。
+    视野遮罩跟随当前管道 Transform、Sprite 和翻转状态，不修改用户的管道位置或尺寸。
+    退到管口悬挂、按 S 掉落或按 R 复位后，恢复房间原来的明暗设置。
+    选中 Lighting | adjustable darkness，在 Level1 Lighting 的“进入管道后的视野”组调整：
+    Enable Pipe Vision：启用管内视野。
+    Pipe Enter Fade / Pipe Exit Fade：进入和退出过渡时间，默认 0.45 / 0.35 秒。
+    Pipe Interior Brightness / Pipe Character Brightness：管内底光和人物亮度，默认 0.32 / 0.8。
+    Pipe Shell Opacity：壳体残留透明度，默认 0.035；设为 0 时只留轮廓。
+    Pipe Outline Opacity / Pipe Outline Width：轮廓透明度和像素宽度，默认 0.45 / 4。
+    Pipe Interior Tint：管内和轮廓颜色，默认暗金色。
+    Pipe interior | runtime only 是临时渲染层，运行时生成，退出时清理，无 Canvas 或 UI。
+    Logs/PipeVision/Validation.json 记录状态切换、画面恢复和管外像素全黑检查。
+
+17. 弯曲管道中的移动与内壁限制
+    管内位置由沿管底曲线的距离推进；角色高度、髋部与胸部倾角分别随路径变化。
+    双手和双脚各自采样接触位置的管底高度，保持原有骨长；头部遇到低顶时降低。
+    角色由 Transform 驱动，因此在控制器中执行内壁空间检测和移动回退，触发器不承担物理阻挡。
+    S、空格和松开 C 不会使人物从管壁直接掉出。按 A 退回左侧管口后转为悬挂，再按 S 下落。
+    右端目前为阻挡边界，按人物前方手掌长度提前停止；没有接入下一段管道或右侧出口。
+    管道位置和缩放保持用户设置，路径随其 Transform 更新。
+    Player → Level1 Traversal Controller → 管内路径与阻挡：
+    Pipe Floor / Pipe Ceiling：下内壁和上内壁曲线，横纵轴均为贴图 0～1 的比例坐标。
+    Pipe End：右端阻挡位置，默认贴图宽度的 0.94。
+    Pipe Front Clearance：停止时为前方手掌预留的距离，默认 0.98 世界单位。
+    Pipe Entry Blend Duration：攀入后适应起伏的时间，默认 0.4 秒。
+    Pipe Crawl Acceleration：管内加减速度，默认 1.2 世界单位/秒²；最高速度仍由 Crawl Speed 控制。
+    Scene 视图选中人物并打开 Gizmos 可查看绿色管底线、青色管顶线和红色右端边界。
+    曲线依据当前蛇皮贴图的主体轮廓绘制，忽略装饰破洞；更换贴图形状后可在 Inspector 调整曲线。
+    Logs/PipePath/Validation.json 和 Samples.csv 记录内壁限制、起伏、出口和骨长检查。

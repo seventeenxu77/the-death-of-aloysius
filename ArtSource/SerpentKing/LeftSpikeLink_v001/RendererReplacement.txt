@@ -1,0 +1,6 @@
+2026-11-18T17:43:36.9905826+08:00
+Scene=Assets/Scenes/level1.unity
+Base=Assets/Art/SerpentKing/LeftSpikeLink_v001/SemicircleBase.asset
+Rod=Assets/Art/SerpentKing/LeftSpikeLink_v001/SemicircleRod.asset
+Material=Assets/Art/SerpentKing/LeftSpikeLink_v001/SemicircleLever.mat
+Fresh mesh assets and fresh renderer objects; old marker SpriteRenderer removed, not just disabled. Sorting 34/35, clipping disabled on dedicated lever material. Existing marker, spike outlet and E link preserved. No Play mode.

@@ -1,0 +1,8 @@
+2026-11-16T17:43:52.4611303+08:00
+Backup: ArtSource/PalaceCorridor/RouteTransitions_v001/level1-before-compact-transitions-20261116-174352.unity
+Front room left door: fit existing arch; right/bedroom doors: narrow side view at wall, matching threshold and interaction/spawn points.
+Bedroom translated X by -20; parallax references and window clip translated with it.
+Antechamber translated X by -20; parallax references and window clip translated with it.
+ReturnWing translated X by -134; parallax references and window clip translated with it.
+W at mirror entrance -> fade out 0.55 s -> relocate and snap camera at full black -> hold 0.15 s -> fade in 0.90 s. Doors use same transition. Inspector adjustable.
+Original room door and approved stair opening retained; no Play mode, screenshots or tests.

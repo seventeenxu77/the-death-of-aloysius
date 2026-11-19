@@ -1,0 +1,5 @@
+2026-11-16T15:39:29.9306403+08:00
+Live backup: ArtSource/SerpentKing/BedchamberRoute_v002/level1-before-route-20261116-153929.unity
+Mirror hall -> perspective depth passage -> left turn -> enclosed corridor -> antechamber -> left bedroom.
+Original room, original pipe, guards, furniture, bed and curtain parameters retained.
+No Play mode or tests.

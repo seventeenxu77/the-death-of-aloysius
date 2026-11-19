@@ -1,0 +1,6 @@
+2026-11-16T18:30:45.3183668+08:00
+Backup: ArtSource/PalaceCorridor/SideDoorsStorm_v001/level1-before-side-doors-storm-20261116-183044.unity
+Walk left across upper landing threshold -> small room; return re-entry latch prevents bouncing.
+Three doorway leaves hidden, replaced by 0.14-wide dark side slits with subtle edge; wide painted left arch occluded using original wall art.
+Weak=0.12, strong=0.3, afterglow=1; dark interval retained; per-layer dim ambient 0.045..0.11, smooth afterglow to ambient, entering darkness fades over 1.2s.
+No Play mode or tests.

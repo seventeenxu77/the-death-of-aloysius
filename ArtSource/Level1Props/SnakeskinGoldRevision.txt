@@ -1,0 +1,10 @@
+已确认的暗金色蛇皮管道
+工具：内置 image_gen.imagegen；transparent_background=true。
+生成文件：C:/Users/SQ/.codex/generated_images/01a1afb4-fedd-77c0-8d7c-498979dd5a59/exec-29c6588b-e432-4e1f-b6c9-3f9c6676f442.png
+项目使用原样复制的图片：Assets/Art/Textures/Level1/Snakeskin_Pipe.png。
+修改前黑色鳞片版本保留为 Snakeskin_Pipe_BlackScales.png。
+放置：房间右侧，中心从天花板向地面方向下移房间净高的 25%。
+房间净高取背景平面上缘至 Floor alignment 地面线；整体宽度维持 3.5。
+
+原始生成提示词：
+COLOR EDIT ONLY of this exact hollow snakeskin tube sprite. The user wants a slightly GOLDEN coloration, rather than the current all-black scales. Preserve the exact horizontal framing, transparent canvas, tube silhouette and proportions, gentle sag, dense overlapping individual scales, ragged tears, flaky ends, and two similarly sized hollow openings. Recolor the outer scale surfaces in a restrained aged-gold / muted ochre palette: clearly visible warm antique-gold midtones, subtly lighter dull-gold scale edges, deep brown-black inter-scale creases and undersides. The gold must be visibly readable across the skin surface, not merely a barely visible edge tint. Keep dark hollow interiors with thin warm ochre ragged rims. Maintain a limited black-and-antique-gold gothic shadow-theatre game illustration style, mostly flat matte shapes with modest shading to separate scales. Dry papery worn snakeskin, NOT polished metallic gold, not shiny armor, not jewelry. No glitter, glow, specular glare, bright yellow saturation, colored ornament, new holes, new objects, anatomy, head or tail. Do not alter the scale arrangement or tube geometry. True transparent background retained, no backdrop, floor, cast shadow, checkerboard, text or watermark. This is a standalone image preview.

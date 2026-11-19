@@ -1,0 +1,19 @@
+守卫回头：头部轻摆动画预览
+
+打开 Preview.html 自动循环播放；项目根目录 PreviewGuardHead.cmd 也可直接打开。
+HeadSway.mp4 为 30 fps、1080×810、5.2 秒的视频。
+摆幅默认 2.8 度，可在预览页调节。肩膀、衣领、背景和边框固定。
+头部层绕颈部转轴缓动，向两侧小幅倾摆、回正、停顿。没有增加完整三维转头。
+本目录仅供预览，尚未接入 Unity 场景或配置触发位置。
+
+图层制作：内置 image_gen 工具；动画合成：Canvas 分层变换。
+原始回头图：exec-70f385ae-2fac-457c-92bf-bf7e60db58a9.png
+头部透明层：exec-7ac41b1d-5d53-4d88-a269-d468be3e0196.png
+固定背景层：exec-a9f5d5a8-1a14-4593-a907-eb02cdd44fcd.png
+原始输出保存在 C:/Users/SQ/.codex/generated_images/01a1afb4-fedd-77c0-8d7c-498979dd5a59/。
+
+Head layer prompt:
+Technical animation layer extraction, NOT a redesign. Extract ONLY the guard's existing head, helmet, hair and exposed neck from this exact supplied comic image onto a REAL transparent background. Keep the exact original canvas dimensions, exact original pixel-scale, placement, pose and colors; do not center, zoom or resize the extracted head. The head is facing LEFT. Preserve all the black silhouette and amber cutout facial marks, helmet rim, hair strands, original natural outline. Include the full exposed neck down to just BEHIND the upper edge of the standing collar, with a small additional plain black neck overlap extending downward to the bottom of that collar. REMOVE the shoulder, cape and collar, entire amber background, architecture, and comic border to transparency. The helmet may remain cropped by the top of the canvas just as in the source. The result is one aligned movable HEAD LAYER for animation; no new details, no shadow, no white background, no checkerboard pixels. Black head areas must remain opaque black, NOT transparent; only outside the head/neck becomes transparent.
+
+Background plate prompt:
+Create a clean STATIC BACKGROUND PLATE for animating this exact supplied comic image. Remove the guard's HEAD, HELMET, HAIR and all EXPOSED NECK above the collar. Fill the entire removed area with a seamless continuation of the existing textured burnt-amber/orange background and subdued gothic atmosphere. KEEP THE SHOULDER, CAPE, STANDING COLLAR and torso in the bottom portion exactly unchanged at the same pixel position, size, silhouette and colors. Keep the original black comic frame and gothic architecture on the right unchanged. Keep exact original canvas dimensions and framing. The result should look like the same image with the head and neck absent, leaving only the stationary black shoulder/collar at the bottom against a restored amber background. Do not add a ghost head, human silhouette, substitute character, movement lines, writing or extra objects. This is an intermediate animation clean plate, preserve all static elements. No checkerboard, no transparency.

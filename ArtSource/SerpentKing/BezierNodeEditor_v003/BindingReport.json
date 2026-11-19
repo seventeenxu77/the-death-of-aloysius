@@ -1,0 +1,33 @@
+{
+  "method": "arc-length frame skinning; rigid skull collar; 8 px alpha-bounded mesh; two C1 cubic Bezier segments",
+  "parts": [
+    {
+      "name": "Venom",
+      "referenceLength": 563.668,
+      "referenceEndAngle": -1.6200523098423285,
+      "vertices": 5808,
+      "triangles": 5782
+    },
+    {
+      "name": "Stone",
+      "referenceLength": 530.187,
+      "referenceEndAngle": -1.4898091255640722,
+      "vertices": 5355,
+      "triangles": 5836
+    },
+    {
+      "name": "Fang",
+      "referenceLength": 526.817,
+      "referenceEndAngle": -1.6007025505478472,
+      "vertices": 7752,
+      "triangles": 6340
+    },
+    {
+      "name": "Time",
+      "referenceLength": 574.266,
+      "referenceEndAngle": -1.515698106879068,
+      "vertices": 9408,
+      "triangles": 9270
+    }
+  ]
+}

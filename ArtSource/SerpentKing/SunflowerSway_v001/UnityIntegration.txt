@@ -1,0 +1,3 @@
+2026-11-17T23:53:26.1360222+08:00
+Applied to 2 BlackGoldWakeSkin components. Frequency 0.36 Hz; independent head phases; root pinned; end-of-swing downward accent and hold.
+Wake cues, eye timing, textures, room positions and ceiling-breach override retained. No Play-mode run.

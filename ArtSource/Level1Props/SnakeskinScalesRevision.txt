@@ -1,0 +1,9 @@
+蛇皮鳞片修改
+工具：内置 image_gen.imagegen，透明背景编辑。
+编辑目标：Assets/Art/Textures/Level1/Snakeskin_Pipe.png。
+修改前图片：Snakeskin_Pipe_BeforeScales.png。
+生成结果：C:/Users/SQ/.codex/generated_images/01a1afb4-fedd-77c0-8d7c-498979dd5a59/exec-6e79999f-a19e-4ba7-a2ba-5478015576f2.png。
+原样替换项目贴图，保留原有 .meta GUID、场景位置、缩放和材质引用。
+
+完整提示词：
+Edit this exact game sprite. Preserve its horizontal composition, canvas aspect ratio, placement, size, gently sagging hollow tubular silhouette, two similarly sized open broken ends, wrinkles and ragged fragments. CHANGE THE SURFACE SCALES: the current design reads as a perforated net. Replace that with dense, clearly recognizable SOLID BLACK SNAKE SCALES. Each scale must be a filled opaque black rounded diamond or shield-shaped overlapping plate, NOT an empty hole. Use orderly staggered rows following the tube curvature, with distinct slightly pointed scale tips and very narrow transparent or muted charcoal seams between adjacent scales. Black scale bodies should occupy about 85–90 percent of the skin surface, with fine readable separation. Make the scales bold and large enough to recognize at game sprite size, approximately 9–12 rows around the visible tube height and 45–60 scales along its length. Maintain a few larger irregular tears and broken peeling edges to suggest a fragile section of shed snakeskin, but greatly reduce scattered perforations. Preserve BOTH hollow dark openings and the thin ripped rims so it is clearly an empty tube, not a solid snake, flat carpet, rigid manufactured pipe, or chainmail. Gothic 2D black silhouette / paper-cut game art, matte black scales, minimal charcoal accents solely for readability, no colored accents, no bright glossy highlights, no photorealistic lighting, no new objects. Keep genuine transparent background and existing transparency outside the object, no background or checkerboard, no floor shadow, no text. Change the scales without redesigning the overall object.

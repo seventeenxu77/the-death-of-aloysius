@@ -1,0 +1,10 @@
+{
+  "source": "https://mocap.cs.cmu.edu/search.php?subjectnumber=7",
+  "clip": "07_01",
+  "fps": 120,
+  "frames": 316,
+  "forwardFootPeaks": [
+    120,
+    249
+  ]
+}

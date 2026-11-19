@@ -1,0 +1,21 @@
+连续镜厅与回环庭院 v003
+
+建筑：GalleryWithTurn.png 是完整镜厅与末端转角的一张连续建筑层，窗洞透明；替换原两段 Window gallery，停用后来覆盖在右端的正面走廊图。
+路径：纵深 Near/Far/LeftTurn 标记移到镜厅实际末端，进入时不再换到 x=145 的独立背景。镜厅和纵深段共享原镜头与雷雨控制。
+尺寸：使用原镜厅起止边界铺设；按画面行走线对齐原地面，人物、柜子、雕像、守卫和原蛇皮管道的位置不移动。
+
+窗外层次（从后到前）：
+原夜空层。
+10 Courtyard return wing：附近的密闭走廊外墙，替代原远处宫殿/城市景；视差比例 0.72。
+11 Midcourt trees：独立中庭树木，比例 0.83。
+04 Parallax garden hedges：保留原近处树丛，比例调整为 0.94。
+09 Unified gallery：透明窗洞的建筑层，随世界正常移动。
+各视差层的 motionRatio 可在 Level1PalaceParallaxLayer 的 Inspector 中调整。
+
+密闭走廊内部也换为与镜厅一致的暗黑、旧铜金、深红地毯配色。
+新建筑与背景加入原 corridorVisuals 和 storm.layers，雷雨会同时作用于新层；床帘和房间通路保留。
+素材使用内置 imagegen 生成/编辑，提示词见 imagegen_prompts.json。
+
+运行仍用 PlayPalaceRoute.cmd 从镜厅末端开始，W/E 进入，W/S 深入和返回。
+原版本对象停用保留；修改前实时场景备份位于本目录。
+只编辑、导入、保存和打包；不运行游戏、不进行测试，实际效果由用户查看。

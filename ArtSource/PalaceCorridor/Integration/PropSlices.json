@@ -1,0 +1,46 @@
+{
+  "slices": [
+    {
+      "name": "Statue",
+      "x": 122,
+      "y": 508,
+      "width": 268,
+      "height": 506
+    },
+    {
+      "name": "Bust",
+      "x": 633,
+      "y": 510,
+      "width": 209,
+      "height": 503
+    },
+    {
+      "name": "Screen",
+      "x": 1005,
+      "y": 507,
+      "width": 467,
+      "height": 484
+    },
+    {
+      "name": "Painting",
+      "x": 93,
+      "y": 38,
+      "width": 332,
+      "height": 435
+    },
+    {
+      "name": "Planter",
+      "x": 556,
+      "y": 34,
+      "width": 330,
+      "height": 440
+    },
+    {
+      "name": "Cabinet",
+      "x": 981,
+      "y": 34,
+      "width": 509,
+      "height": 300
+    }
+  ]
+}

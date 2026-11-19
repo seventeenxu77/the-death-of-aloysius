@@ -1,0 +1,46 @@
+任务板完成记录 — 2026-11-16
+
+执行依据：Assets/Design/level 中“任务”1、2、3。
+交付场景：Assets/Scenes/level1.unity。
+独立运行版：Builds/SerpentChapter/AloysiusLevel1.exe。
+
+1. 床上苏醒
+已将四头蛇接入原有帘子揭示和镜头流程，摆放在床内。
+真实 Unity 骨骼：66 个骨骼，451 帧、30 FPS、15 秒的运动数据；7 个蒙皮网格。
+保留恢复版 v016 动作中的转头、吐信、毒囊和尾巴轨道。
+为床内比例调整头部补偿及遮挡；源 v016 / v021 文件未替换。
+
+2. 连续关卡
+寝宫右侧封门，左方引导 → 裂缝地板被巨石砸开 → 垂直短井下落。
+地下尖刺机关击杀巨石 → 上二层 → 纵深穿行进入突刺塔。
+左右突刺头可站立，撤回后不留下空气平台 → 顶层纵深出口回到原卧室。
+升降台改变喷射高度 → 水平毒液腐蚀锁链 → 闸刀杀死突刺头 → 下方通路打开。
+毒液腐蚀铁门 → 石球装炮 → 炮弹命中高台毒液头 → 炮筒发射玩家 → 高台梯子。
+时间王庭：多种攻击、控制器诱饵、咬住后操纵头部位置和景深、四处重锤依次剥离能力并完成战斗。
+新增场景有远/中/近画层、视差、门框遮挡和实际纵深穿行。原房间、镜厅及已确认路线保留。
+
+3. 可复用攻击
+Assets/Prefabs/SerpentKing/StoneAttack.prefab
+Assets/Prefabs/SerpentKing/VenomAttack.prefab
+Assets/Prefabs/SerpentKing/FangAttack.prefab
+起终点、头部朝向、蓄力、抖动、突进、停留、回收、毒囊膨胀和喷射长度均可在 Inspector 修改。
+毒囊使用带权重的蒙皮变形。突刺支撑仅在伸出停留阶段生效。
+
+验证
+最终独立运行版验证时间：2026-11-16 22:35:38 +08:00。
+73 项检查通过，0 项失败，0 个运行时错误。
+覆盖完整机关顺序、错误落点/射线高度拒绝、真实跳跃和支撑碰撞、升降随动、炮弹/玩家发射、纵深转换、最终击杀以及 GM 返回原场景。
+检查 level1 和 3 个攻击预制体的脚本引用，未发现无法解析的脚本引用。
+已核对六处实际相机渲染截图。
+检查器使用定位辅助和真实交互/攻击逻辑，不等同于全程手动操作通关；操作手感和最终美术仍可继续按实际游玩反馈调整。
+证据：Verification/Checks.txt、Result.txt、RuntimeErrors.txt、Events.txt、References.json，以及六张 PNG。
+
+开始游玩
+项目根目录 PlaySerpentChapter.cmd：直接查看床上苏醒并开始新章节。
+项目根目录 PlayLevelTaskFull.cmd：从原房间进入完整路线。
+操作与 GM 指令请见同目录 Guide.txt；Review.html 可集中查看截图和验证结果。
+
+编辑器状态
+原来已打开的 Unity 窗口无法由自动化激活刷新。因此通过独立后台验证工程完成编译、保存、运行和打包；Assets/ArtSource 指向本 D 盘项目，所有最终修改已落回指定项目。
+如果原 Unity 窗口仍是旧画面，请 Ctrl+R 刷新，并重新打开 Assets/Scenes/level1.unity。独立运行版已是本次最终版本。
+验证工程：D:/AloysiusTaskValidation。原始场景和受影响脚本备份在 Backups。

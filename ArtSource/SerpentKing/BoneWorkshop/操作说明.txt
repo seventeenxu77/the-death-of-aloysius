@@ -1,0 +1,18 @@
+这是独立的骨骼编辑场景，不运行原来的程序摆动。
+
+入口：Unity 菜单 Aloysius > Serpent > 骨骼编辑工具 > 打开独立骨骼编辑场景。
+场景：Assets/Scenes/SerpentBoneWorkshop.unity
+预制体：Assets/Art/SerpentKing/EditableBones/SerpentKing_Editable.prefab
+动画：Assets/Art/SerpentKing/EditableBones/Sway_Editable.anim
+
+1. 在骨骼面板选择巨石 / 毒液 / 突刺 / 时间的颈根、中段、上段或头骨，也可以点 Scene 里的彩色关节。
+2. 按 W 移动，按 E 绕 Z 轴旋转。旋转颈部会带动上方骨骼；头骨主要控制整个头的朝向。Ctrl+Z 撤销，Ctrl+S 保存场景姿势。
+3. 要制作动画，点击面板“选中动画根节点 / 打开 Animation 窗口”。选择 Sway_Editable，开启红色录制，移动时间游标后调整骨骼，Unity 会记录位置 / 旋转关键帧。
+4. 初始的0、1.5、3秒关键帧都是中立姿势，不包含之前被否定的摆动。你可以重新安排关键帧，使用 Curves 中的切线调整末端停顿与下沉速度。
+5. 录完关闭红色录制，用 Animation 自带播放和时间游标预览。骨骼面板的循环频率控制 Animator 状态播放速度，不改变关键帧本身。
+6. 单纯Ctrl+S只保存场景姿势；要让姿势成为动画，必须在Animation录制或添加关键帧。动画素材的修改会写入.anim；Prefab仍保留独立的初始骨架。
+
+技术结构：46个保存的Transform骨骼，5张独立加权蒙皮网格，6个原生SkinnedMeshRenderer（含共享盘身前景），四个头各自一条骨链。材质和图片继续使用当前黑金美术。
+编辑场景里的骨架没有每帧写回骨骼位置的脚本。尚未把手动动画替换到战斗或苏醒流程，避免覆盖你接下来制作的动作。
+level1中刚才新增的自动待机摆动已经停用；苏醒和巨石破顶等专门演出保留。
+未运行Play模式测试。

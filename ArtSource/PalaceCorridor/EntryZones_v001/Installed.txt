@@ -1,0 +1,5 @@
+2026-11-16T17:51:00.8738334+08:00
+Backup: ArtSource/PalaceCorridor/EntryZones_v001/level1-before-entry-regions-20261116-175100.unity
+Mirror entrance X: 28.06042 .. 34.05497 (width 5.994556)
+Six editable BoxCollider2D trigger regions on route markers. Feet inside region and grounded; area state prevents unrelated transitions.
+Top stair -> small room -> giant bedroom and reverse links use existing fade transition. Original layout, art, patrols and fades preserved. No Play mode or tests.

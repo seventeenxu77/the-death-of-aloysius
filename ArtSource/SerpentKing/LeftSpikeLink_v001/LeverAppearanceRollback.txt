@@ -1,0 +1,2 @@
+2026-11-18T17:26:53.3105070+08:00
+Reverted only unapproved semicircle meshes, pivot, grip and runtime changes. Existing outlet placement, ground switch marker, firing link and other scene edits preserved. No Play mode.

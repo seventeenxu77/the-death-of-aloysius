@@ -1,0 +1,53 @@
+The Death of Aloysius — 项目目录
+
+场景（Assets/Scenes）
+  royal Scene.unity：主宫殿场景。
+  final.unity：双层大厅、走廊和机械门场景。
+  Gothic_Theatre_Bride_Walk.unity：哥特剧场及新娘二维行走场景。
+  level1.unity：暗房间、床/窗户/门及可行走/疾跑/跳跃的二维人物；接触高亮，按住 E 自动走到床沿蹲下，A/D 拖动床；床面可站立，侧面可穿过，无游戏 UI。
+构建列表依次为上述四个场景；编辑器 Play 使用当前打开场景。
+
+交互与运行脚本（Assets/Scripts）
+  Player：第一人称悬浮移动。
+  Interaction：宫殿门与机械折叠门。
+  Palace：房间标识和设计信息。
+  GothicStage：二维人物行走、疾跑、跳跃、转身、拖拽、匍匐、悬挂上拉骨骼动作。
+  Level1：房间暗度、无 UI 镜头、接触箱、高亮、拖拽及管口悬挂/攀入交互。
+  Rendering：现有 URP 设置所需的绘画效果。
+不保留旧场景生成器、文件请求控制桥、截图和自动验证脚本。
+
+美术（Assets/Art）
+  Meshes：实际使用的建筑、门和人物网格。
+  Materials：材质。
+  Textures：纹理与壁画。
+  Shaders：当前材质和渲染设置使用的着色器。
+每个分类内再按 Palace、Doors、GothicStage、Shared 等用途分组。
+Palace 网格分组代表建筑基础、侍卫弧线、错层、连接通路等，不是多个重复场景。
+
+其他 Unity 数据
+  Assets/Data：哥特人物动作数据。
+  Assets/Prefabs：可复用的机械折叠门。
+  Assets/Settings：URP 渲染和 ProBuilder 设置。
+  Packages、ProjectSettings：Unity 项目必需设置。
+
+原始美术（ArtSource/GothicStage/Bride2DRig）
+  保留哥特人物原图、分件、骨骼权重与动作来源；不包含自动制作/验证工具。
+家具原始美术（ArtSource/Level1Props）
+  保留已确认设计、透明图集，以及生图提示词和 Unity 切片参数。
+
+建筑网页方案（Documentation/RoyalArchitectureEditor）
+  启动建筑编辑器.cmd：打开本地网页。
+  data/project.json：当前方案；data/history：用户保存历史。
+  model：Unity 基础模型导出；references/atlas：网页中的剖面图册。
+  网页修改不会自动回写 Unity。
+  server.py、app.js、vendor 等是网页本身的运行依赖，不是 Unity 自动操作工具。
+  qa、__pycache__ 已按确认清单清理；tests 保留。logs 与测试缓存不上传 Git，不属于 Unity 游戏内容。
+
+独立演示（Builds/GothicBride2D、PlayGothicStage.cmd）
+  2026-11-11 已更新哥特剧场可执行版本，支持 Shift + A/D 疾跑。
+  它是独立打包产物，之后修改 Unity 源文件仍需重新构建。
+
+Library、Temp、Logs、UserSettings 由 Unity 管理，不是游戏内容目录。
+
+Level1 试玩：PlayLevel1.cmd；独立版本位于 Builds/Level1。
+制作步骤、参数与验证说明：Documentation/Level1Setup.txt。

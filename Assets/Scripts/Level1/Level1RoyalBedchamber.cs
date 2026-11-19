@@ -1,0 +1,463 @@
+﻿using System.Collections;
+using UnityEngine;
+using Aloysius.GothicStage;
+
+namespace Aloysius.Level1
+{
+    [DefaultExecutionOrder(950)]
+    public sealed class Level1RoyalBedchamber : MonoBehaviour
+    {
+        public enum StartArea { OriginalRoom=0, Antechamber=1, GiantBedchamber=2, MirrorHallEnd=3, DepthPassage=4, EnclosedCorridor=5 }
+        [Header("运行起点：可直接进入寝宫查看效果")]
+        public StartArea startArea = StartArea.OriginalRoom;
+        [Header("已有角色与镜厅")]
+        public GothicBride2DWalker actor;
+        public Level1DragController drag;
+        public Level1TraversalController traversal;
+        public Level1PalaceCorridor corridor;
+        [Header("通路标记（可在场景中移动）")]
+        public Transform corridorHole, returnToCorridor;
+        public Transform antechamberSpawn, antechamberHole, antechamberDoor;
+        public Transform bedroomSpawn, bedroomDoor, curtainInteraction;
+        public Transform antechamberLeft, antechamberRight, bedroomLeft, bedroomRight;
+        public Transform doorHinge;
+        public Level1BedCurtains curtains;
+        [Header("修订路线：镜厅 → 纵深走廊 → 左转密闭走廊 → 前室 → 寝宫")]
+        public bool correctedRoute;
+        [Tooltip("使用镜厅本身的连续转角与镜头；纵深段不切换到独立背景。")]
+        public bool integratedGalleryTurn;
+        public Transform depthEntrance, depthNear, depthFar, depthLeftTurn, depthCamera;
+        public Transform enclosedLeft, enclosedRight, enclosedLeftDoor, enclosedRightDoor;
+        public Transform enclosedLeftSpawn, enclosedRightSpawn;
+        [Header("入口判定区域（选择对应物体，编辑 Box Collider 2D 范围）")]
+        public BoxCollider2D mirrorToCorridorZone;
+        public BoxCollider2D corridorToMirrorZone;
+        public BoxCollider2D corridorToSmallRoomZone;
+        public BoxCollider2D smallRoomToCorridorZone;
+        public BoxCollider2D smallRoomToBedroomZone;
+        public BoxCollider2D bedroomToSmallRoomZone;
+        [Min(1)] public float depthCameraSize=5.6f;
+        [Min(1)] public float enclosedCameraSize=4f;
+        [Header("纵深移动：W / S 或上 / 下；D / A 也可前进、返回")]
+        [Min(1)] public float depthTravelDistance=8f;
+        [Min(.1f)] public float depthWalkSpeed=1.35f;
+        [Min(.1f)] public float depthAcceleration=3f;
+        [Range(.1f,1)] public float distantCharacterScale=.44f;
+        [Min(.1f)] public float leftTurnDuration=.65f;
+        [Min(.1f)] public float passageEndpointInset=.10f;
+        [Header("交互")]
+        public KeyCode interactKey = KeyCode.E;
+        [Header("远景入口与黑屏转场")]
+        public KeyCode depthEntryKey = KeyCode.W;
+        [Min(.05f)] public float fadeOutSeconds=.55f;
+        [Min(0)] public float blackHoldSeconds=.15f;
+        [Min(.05f)] public float fadeInSeconds=.9f;
+        [Min(.1f)] public float interactionDistance = .9f;
+        [Min(.1f)] public float holeHorizontalReach = .65f;
+        [Min(0)] public float holeJumpHeight = .35f;
+        [Min(.2f)] public float passageDuration = .85f;
+        [Header("镜头与室内人物亮度")]
+        [Min(1)] public float antechamberCameraSize = 4.4f;
+        [Min(1)] public float bedroomCameraSize = 6.9f;
+        [Min(1)] public float returnCameraSize = 3.15f;
+        public Vector2 returnCameraOffset = new Vector2(0,2.65f);
+        [Min(.01f)] public float cameraSmooth = .3f;
+        [Range(0,1)] public float characterExposure = .68f;
+        [SerializeField] int currentArea;
+        bool transitioning, doorOpened;
+        float doorAngle, cameraSizeVelocity;
+        Vector3 cameraVelocity, actorScale;
+        MaterialPropertyBlock block;
+        float depthProgress, depthVelocity, depthPhase, depthBlend, inputCooldown;
+        int depthFacing=1;
+        Vector3 activeDepthNear;
+        bool runtimeReady;
+        float transitionBlack;
+        [Header("台阶顶部入口")]
+        [Min(.01f)] public float stairDoorHeightTolerance=.20f;
+        public bool walkLeftIntoSmallRoom=true;
+        [Min(0)] public float automaticDoorThreshold=.08f;
+        bool automaticEntryReady=true;
+        [Header("大床房自动进入与揭幕")]
+        public bool walkLeftIntoBedroom=true;
+        public bool autoRevealCurtains=true;
+        public Transform bedRevealCenter;
+        [Min(.1f)] public float bedRevealHalfWidth=.65f;
+        [Min(.1f)] public float bedRevealHeight=3.5f;
+        bool bedroomEntryReady=true,bedRevealTriggered;
+        [Header("寝宫镜头：先跟随，揭幕后展示全景")]
+        [Min(.5f)] public float bedroomFollowSize=3f;
+        public Vector2 bedroomFollowOffset=new Vector2(-.4f,2.5f);
+        public Transform bedroomOverviewCenter;
+        public Vector2 bedroomOverviewDimensions=new Vector2(31.025f,13.625f);
+        [Min(0)] public float bedroomRevealCameraDelay=.25f;
+        [Min(.1f)] public float bedroomRevealCameraSeconds=3.2f;
+        float bedroomRevealClock;
+        Vector3 bedroomRevealCameraFrom;
+        float bedroomRevealSizeFrom;
+        public bool InsideRooms => currentArea != 0;
+        IEnumerator Start()
+        {
+            actorScale=actor.transform.localScale;
+            drag.ResetPerformed += ResetRoute;
+            yield return null;
+            runtimeReady=true;
+            if(System.Array.IndexOf(System.Environment.GetCommandLineArgs(),"-bedchamber")>=0)startArea=StartArea.GiantBedchamber;
+            if(System.Array.IndexOf(System.Environment.GetCommandLineArgs(),"-palace-route")>=0)startArea=StartArea.MirrorHallEnd;
+            if(startArea!=StartArea.OriginalRoom)
+            {
+                corridor.ResumeAtCorridor();
+                if(startArea==StartArea.DepthPassage)EnterDepth(false);
+                else EnterArea(startArea==StartArea.Antechamber?1:startArea==StartArea.GiantBedchamber?2:startArea==StartArea.EnclosedCorridor?3:0);
+                var cam=Camera.main;if(cam)SnapCamera(cam);
+            }
+        }
+        void OnDestroy(){if(drag)drag.ResetPerformed-=ResetRoute;}
+        void ResetRoute()
+        {
+            StopAllCoroutines(); transitioning=false;currentArea=0;doorOpened=false;
+            transitionBlack=0;
+            actor.transform.localScale=actorScale;drag.ExternalControl=false;
+            cameraVelocity=Vector3.zero;cameraSizeVelocity=0;
+            if(curtains)curtains.ResetClosed();
+            bedRevealTriggered=false;bedroomEntryReady=automaticEntryReady=true;
+            bedroomRevealClock=0;
+            depthProgress=depthVelocity=depthPhase=depthBlend=0;
+        }
+        bool Near(Transform marker)=>marker && Mathf.Abs(actor.transform.position.x-marker.position.x)<=interactionDistance && actor.JumpState==GothicJumpState.Grounded;
+        bool InsideEntry(BoxCollider2D zone,Transform fallback)
+        {
+            if(!zone)return Near(fallback);
+            if(!zone.enabled || !zone.gameObject.activeInHierarchy || actor.JumpState!=GothicJumpState.Grounded)return false;
+            // Test the foot position against the editable region. No physics trigger
+            // callback is needed for the manually driven character, and the region never blocks movement.
+            Vector2 point=zone.transform.InverseTransformPoint(actor.transform.position);
+            var rect=new Rect(zone.offset-zone.size*.5f,zone.size);
+            return rect.Contains(point);
+        }
+        void OnDrawGizmosSelected()
+        {
+            var matrix=Gizmos.matrix;var color=Gizmos.color;
+            foreach(var zone in new[]{mirrorToCorridorZone,corridorToMirrorZone,corridorToSmallRoomZone,smallRoomToCorridorZone,smallRoomToBedroomZone,bedroomToSmallRoomZone})
+            {
+                if(!zone)continue;Gizmos.matrix=zone.transform.localToWorldMatrix;
+                Gizmos.color=new Color(.1f,.8f,1,.12f);Gizmos.DrawCube(zone.offset,new Vector3(zone.size.x,zone.size.y,.02f));
+                Gizmos.color=new Color(.1f,.8f,1,.85f);Gizmos.DrawWireCube(zone.offset,new Vector3(zone.size.x,zone.size.y,.02f));
+            }
+            Gizmos.matrix=matrix;Gizmos.color=color;
+            if(bedRevealCenter)
+            {
+                Gizmos.matrix=Matrix4x4.identity;Gizmos.color=new Color(1,.65f,.1f,.8f);
+                Gizmos.DrawWireCube(bedRevealCenter.position+Vector3.up*(bedRevealHeight*.5f),new Vector3(bedRevealHalfWidth*2,bedRevealHeight,.1f));
+                Gizmos.matrix=matrix;Gizmos.color=color;
+            }
+        }
+        void Update()
+        {
+            if(Level1TeleportConsole.BlocksGameplayInput)return;
+            if(!actor || !corridor)return;
+            inputCooldown=Mathf.Max(0,inputCooldown-Time.deltaTime);
+            if(doorHinge){doorAngle=Mathf.MoveTowards(doorAngle,doorOpened?78:0,Time.deltaTime*115);doorHinge.localRotation=Quaternion.Euler(0,doorAngle,0);}
+            if(transitioning)return;
+            if(currentArea==2 && autoRevealCurtains && !bedRevealTriggered && bedRevealCenter && curtains)
+            {
+                var offset=actor.transform.position-bedRevealCenter.position;
+                if(Mathf.Abs(offset.x)<=bedRevealHalfWidth && offset.y>=-.3f && offset.y<=bedRevealHeight)
+                {
+                    bedRevealTriggered=true;bedroomRevealClock=0;curtains.SnapOpen();
+                    var revealCamera=Camera.main;
+                    if(revealCamera)
+                    {bedroomRevealCameraFrom=revealCamera.transform.position;bedroomRevealSizeFrom=revealCamera.orthographicSize;}
+                    cameraVelocity=Vector3.zero;cameraSizeVelocity=0;
+                }
+            }
+            if(currentArea==2 && bedRevealTriggered)bedroomRevealClock+=Time.deltaTime;
+            if(correctedRoute && currentArea==4)
+            {
+                if(Input.GetKeyDown(KeyCode.R)){drag.Tick(0,0,false,false,false,true);return;}
+                AdvanceDepth();return;
+            }
+            if(currentArea==3 && walkLeftIntoSmallRoom)
+            {
+                bool inEntry=InsideEntry(corridorToSmallRoomZone,enclosedLeftDoor);
+                if(!inEntry)automaticEntryReady=true;
+                bool left=(Input.GetKey(KeyCode.A)||Input.GetKey(KeyCode.LeftArrow))
+                    && !Input.GetKey(KeyCode.D)&&!Input.GetKey(KeyCode.RightArrow);
+                if(automaticEntryReady && inputCooldown<=0 && inEntry && left && enclosedLeftDoor
+                    && actor.transform.position.x<=enclosedLeftDoor.position.x+automaticDoorThreshold
+                    && Mathf.Abs(actor.GroundY-enclosedLeftDoor.position.y)<=stairDoorHeightTolerance)
+                {StartCoroutine(PassTo(1,false));return;}
+            }
+            if(currentArea==1 && walkLeftIntoBedroom)
+            {
+                bool inEntry=InsideEntry(smallRoomToBedroomZone,antechamberDoor);
+                if(!inEntry)bedroomEntryReady=true;
+                bool left=(Input.GetKey(KeyCode.A)||Input.GetKey(KeyCode.LeftArrow))
+                    && !Input.GetKey(KeyCode.D)&&!Input.GetKey(KeyCode.RightArrow);
+                if(bedroomEntryReady && inputCooldown<=0 && inEntry && left && antechamberDoor
+                    && actor.transform.position.x<=antechamberDoor.position.x+automaticDoorThreshold)
+                {doorOpened=true;StartCoroutine(PassTo(2,false));return;}
+            }
+            if(currentArea==0)
+            {
+                if(correctedRoute)
+                {
+                    if(corridor.Arrived && InsideEntry(mirrorToCorridorZone,depthEntrance) && inputCooldown<=0
+                        && Input.GetKeyDown(depthEntryKey))StartCoroutine(PassTo(3,false));
+                }
+                else if(corridor.Arrived && corridorHole && Input.GetKey(interactKey)
+                    && Mathf.Abs(actor.transform.position.x-corridorHole.position.x)<holeHorizontalReach
+                    && actor.HeightAboveGround>=holeJumpHeight && traversal.State==Level1TraversalState.Normal)
+                    StartCoroutine(PassTo(1,true));
+            }
+            else if(inputCooldown<=0 && (Input.GetKeyDown(interactKey)||Input.GetKeyDown(depthEntryKey)))
+            {
+                if(currentArea==3 && InsideEntry(corridorToMirrorZone,enclosedRightDoor))StartCoroutine(PassTo(0,false));
+                else if(currentArea==3 && InsideEntry(corridorToSmallRoomZone,enclosedLeftDoor)
+                    && (corridorToSmallRoomZone || Mathf.Abs(actor.GroundY-enclosedLeftDoor.position.y)<=stairDoorHeightTolerance))StartCoroutine(PassTo(1,false));
+                else if(currentArea==1 && InsideEntry(smallRoomToCorridorZone,antechamberHole))StartCoroutine(PassTo(correctedRoute?3:0,false,true));
+                else if(currentArea==1 && InsideEntry(smallRoomToBedroomZone,antechamberDoor)){doorOpened=true;StartCoroutine(PassTo(2,false));}
+                else if(currentArea==2 && InsideEntry(bedroomToSmallRoomZone,bedroomDoor))StartCoroutine(PassTo(1,false,true));
+                else if(currentArea==2 && (!autoRevealCurtains||bedRevealTriggered) && Input.GetKeyDown(interactKey) && Near(curtainInteraction) && curtains)curtains.Toggle();
+            }
+        }
+        public bool TeleportForDebug(string destination,Transform hallSpawn,out string message)
+        {
+            message="";
+            if(!Application.isPlaying || !runtimeReady || !actor || !drag || !traversal || !corridor)
+            {message="角色尚未初始化，请稍后重试。";return false;}
+            Transform point=null;
+            switch(destination)
+            {
+                case "room":break;
+                case "hall":point=hallSpawn;break;
+                case "end":point=returnToCorridor;break;
+                case "turn":point=depthNear;break;
+                case "pass":point=enclosedRightSpawn;break;
+                case "ante":point=antechamberSpawn;break;
+                case "bed":point=bedroomSpawn;break;
+                default:message="未知地点。输入 2dtrans 查看地点列表。";return false;
+            }
+            if(destination!="room" && !point){message="此地点缺少传送标记。";return false;}
+            if(destination=="turn" && (!depthFar || !depthLeftTurn || !depthCamera))
+            {message="纵深走廊路径尚未配置。";return false;}
+            // Cancel all pending traversal/door transitions, without resetting moved furniture.
+            StopAllCoroutines();transitioning=false;currentArea=0;
+            transitionBlack=0;
+            drag.CancelForTeleport();actor.transform.localScale=actorScale;
+            depthProgress=depthVelocity=depthPhase=depthBlend=0;cameraVelocity=Vector3.zero;cameraSizeVelocity=0;
+            actor.ResetActor();
+            var comic=FindObjectOfType<Level1GuardComic>();if(comic)comic.ResetSequence();
+            var cam=Camera.main;
+            if(destination=="room")
+            {
+                corridor.ReturnToOriginalRoom();
+                if(cam)
+                {
+                    var view=cam.GetComponent<Level1RoomView>();var size=view?view.RoomSize:new Vector2(10,5.62799f);
+                    cam.transform.position=new Vector3(0,0,-10);
+                    cam.orthographicSize=Mathf.Max(size.y*.5f,size.x*.5f/Mathf.Max(.1f,cam.aspect));
+                }
+            }
+            else
+            {
+                corridor.ResumeAtCorridor();
+                if(destination=="hall" || destination=="end")
+                {
+                    actor.RelocateOnRoomFloor(point.position);
+                    if(cam)corridor.SnapCorridorCamera(cam);
+                }
+                else if(destination=="turn")
+                {
+                    actor.RelocateOnRoomFloor(point.position);EnterDepth(false);if(cam)SnapCamera(cam);
+                }
+                else {EnterArea(destination=="pass"?3:destination=="ante"?1:2);if(cam)SnapCamera(cam);}
+            }
+            inputCooldown=.25f;Physics2D.SyncTransforms();
+            message="已传送："+destination;return true;
+        }
+        void EnterDepth(bool fromBack)
+        {
+            if(!depthNear || !depthFar)return;
+            activeDepthNear=integratedGalleryTurn&&!fromBack?actor.transform.position:depthNear.position;
+            traversal.ResetTraversal();actor.RelocateOnRoomFloor((fromBack?depthFar:depthNear).position);
+            currentArea=4;drag.ExternalControl=true;actor.ExternalControl=true;
+            depthProgress=fromBack?1:0;depthVelocity=depthPhase=depthBlend=0;depthFacing=fromBack?-1:1;
+            inputCooldown=.25f;ApplyDepthPosition();var cam=Camera.main;if(cam && (!integratedGalleryTurn||fromBack))SnapCamera(cam);
+        }
+        void AdvanceDepth()
+        {
+            float dt=Mathf.Min(Time.deltaTime,.05f);
+            int forward=(Input.GetKey(KeyCode.W)||Input.GetKey(KeyCode.UpArrow)||Input.GetKey(KeyCode.D)||Input.GetKey(KeyCode.RightArrow))?1:0;
+            int back=(Input.GetKey(KeyCode.S)||Input.GetKey(KeyCode.DownArrow)||Input.GetKey(KeyCode.A)||Input.GetKey(KeyCode.LeftArrow))?1:0;
+            int direction=inputCooldown>0?0:forward-back;
+            depthVelocity=Mathf.MoveTowards(depthVelocity,direction*depthWalkSpeed,depthAcceleration*dt);
+            float before=depthProgress;depthProgress=Mathf.Clamp01(depthProgress+depthVelocity*dt/Mathf.Max(1,depthTravelDistance));
+            float distance=Mathf.Abs(depthProgress-before)*depthTravelDistance;
+            depthPhase=Mathf.Repeat(depthPhase+distance/Mathf.Max(.1f,actor.Clip.stridePixels/actor.Clip.pixelsPerUnit),1);
+            depthBlend=Mathf.MoveTowards(depthBlend,distance>.00001f?1:0,dt*5);
+            if(direction!=0)depthFacing=direction;
+            actor.PoseDepthWalk(depthPhase,depthBlend,depthFacing);
+            ApplyDepthPosition();
+            if(inputCooldown>0)return;
+            if(depthProgress>=1 && direction>0)StartCoroutine(TurnLeftIntoHall());
+            else if(depthProgress<=0 && direction<0)
+            {
+                actor.transform.localScale=actorScale;drag.ExternalControl=false;EnterArea(0);
+                inputCooldown=.35f;var cam=Camera.main;if(cam)SnapCamera(cam);
+            }
+        }
+        void ApplyDepthPosition()
+        {
+            // Reciprocal perspective makes distant movement slower and smaller on screen.
+            float scale=1/(1+(1/Mathf.Max(.1f,distantCharacterScale)-1)*depthProgress);
+            float t=Mathf.Abs(1-distantCharacterScale)<.001f?depthProgress:(1-scale)/(1-distantCharacterScale);
+            actor.transform.position=Vector3.Lerp(activeDepthNear,depthFar.position,t);
+            actor.transform.localScale=actorScale*scale;
+        }
+        IEnumerator TurnLeftIntoHall()
+        {
+            transitioning=true;float time=0;Vector3 from=actor.transform.position;
+            while(time<leftTurnDuration)
+            {
+                float dt=Mathf.Min(Time.deltaTime,.05f);time+=dt;depthPhase=Mathf.Repeat(depthPhase+dt*.85f,1);
+                actor.PoseDepthWalk(depthPhase,1,-1);actor.transform.position=Vector3.Lerp(from,depthLeftTurn.position,Mathf.SmoothStep(0,1,time/Mathf.Max(.1f,leftTurnDuration)));
+                yield return null;
+            }
+            yield return PassTo(3,false);
+        }
+        IEnumerator PassTo(int destination,bool throughHole,bool returningFromBedroom=false)
+        {
+            transitioning=true;drag.CancelForTeleport();drag.ExternalControl=true;actor.ExternalControl=true;
+            Vector3 from=actor.transform.position;
+            float time=0;
+            while(throughHole && time<passageDuration)
+            {
+                time+=Time.deltaTime;float t=Mathf.SmoothStep(0,1,Mathf.Clamp01(time/passageDuration));
+                if(throughHole)
+                {
+                    float scale=Mathf.Lerp(1,.22f,t);actor.transform.localScale=actorScale*scale;
+                    actor.transform.position=Vector3.Lerp(from,corridorHole.position-Vector3.up*.12f,t);
+                    actor.PoseCrawl(actor.transform.position.y,t*.5f,.6f,1,actor.Facing);
+                }
+                else actor.Advance(0,Time.deltaTime);
+                yield return null;
+            }
+            yield return FadeScreen(1,fadeOutSeconds);
+            actor.transform.localScale=actorScale;
+            EnterArea(destination,returningFromBedroom);
+            // Relocation resets movement state. Keep control locked until the new room is visible.
+            drag.ExternalControl=true;actor.ExternalControl=true;
+            var cam=Camera.main;if(cam)SnapCamera(cam);
+            if(blackHoldSeconds>0)yield return new WaitForSeconds(blackHoldSeconds);
+            yield return FadeScreen(0,fadeInSeconds);
+            inputCooldown=.35f;transitioning=false;drag.ExternalControl=false;
+        }
+        IEnumerator FadeScreen(float target,float seconds)
+        {
+            float from=transitionBlack,time=0;
+            while(time<Mathf.Max(.05f,seconds))
+            {
+                time+=Time.deltaTime;
+                transitionBlack=Mathf.Lerp(from,target,Mathf.SmoothStep(0,1,time/Mathf.Max(.05f,seconds)));
+                yield return null;
+            }
+            transitionBlack=target;
+        }
+        void OnGUI()
+        {
+            if(transitionBlack<=0 || Event.current.type!=EventType.Repaint)return;
+            var color=GUI.color;int depth=GUI.depth;
+            GUI.depth=-10000;GUI.color=new Color(0,0,0,transitionBlack);
+            GUI.DrawTexture(new Rect(0,0,Screen.width,Screen.height),Texture2D.whiteTexture);
+            GUI.color=color;GUI.depth=depth;
+        }
+        void OnDisable()
+        {
+            StopAllCoroutines();transitionBlack=0;transitioning=false;
+            if(drag)drag.ExternalControl=false;
+        }
+        void EnterArea(int area,bool fromBedroom=false)
+        {
+            currentArea=area;traversal.ResetTraversal();
+            // Returning from the room must first leave the landing entry region;
+            // holding left through a fade must not immediately send the player back.
+            automaticEntryReady=!(area==3 && fromBedroom);
+            bedroomEntryReady=!(area==1 && fromBedroom);
+            Transform spawn=area==0?returnToCorridor:area==1?(fromBedroom?antechamberDoor:antechamberSpawn):area==3?(fromBedroom?enclosedLeftSpawn:enclosedRightSpawn):bedroomSpawn;
+            actor.RelocateOnRoomFloor(spawn.position,area==3);
+            if(area==0)corridor.ResumeAtCorridor();
+            else actor.SetMovementBounds((area==1?antechamberLeft:area==3?enclosedLeft:bedroomLeft).position.x,(area==1?antechamberRight:area==3?enclosedRight:bedroomRight).position.x);
+        }
+        void Target(Camera cam,float aspect,out Vector3 position,out float size)
+        {
+            if(currentArea==4){position=depthCamera.position;size=depthCameraSize;return;}
+            if(currentArea==2)
+            {
+                float safeAspect=Mathf.Max(.1f,aspect);
+                if(!bedRevealTriggered)
+                {
+                    size=bedroomFollowSize;
+                    float followHalf=Mathf.Min(size*safeAspect,(bedroomRight.position.x-bedroomLeft.position.x)*.5f);
+                    float followX=Mathf.Clamp(actor.transform.position.x+bedroomFollowOffset.x,bedroomLeft.position.x+followHalf,bedroomRight.position.x-followHalf);
+                    position=new Vector3(followX,actor.transform.position.y+bedroomFollowOffset.y,-10);return;
+                }
+                var overview=bedroomOverviewCenter?bedroomOverviewCenter.position:
+                    new Vector3((bedroomLeft.position.x+bedroomRight.position.x)*.5f,actor.RoomFloorY+bedroomCameraSize-.5f,-10);
+                overview.z=-10;
+                float overviewSize=Mathf.Max(bedroomCameraSize,bedroomOverviewDimensions.y*.5f,bedroomOverviewDimensions.x*.5f/safeAspect);
+                float t=Mathf.SmoothStep(0,1,Mathf.Clamp01((bedroomRevealClock-bedroomRevealCameraDelay)/Mathf.Max(.1f,bedroomRevealCameraSeconds)));
+                position=Vector3.Lerp(bedroomRevealCameraFrom,overview,t);
+                size=Mathf.Lerp(bedroomRevealSizeFrom,overviewSize,t);return;
+            }
+            var l=currentArea==1?antechamberLeft:currentArea==3?enclosedLeft:bedroomLeft;var r=currentArea==1?antechamberRight:currentArea==3?enclosedRight:bedroomRight;
+            size=currentArea==1?antechamberCameraSize:currentArea==3?enclosedCameraSize:bedroomCameraSize;
+            // Fit the room width on narrow windows; stop tracking at the room edges.
+            size=Mathf.Max(size,Mathf.Min(4f,(r.position.x-l.position.x)*.5f)/Mathf.Max(.1f,aspect));
+            float half=Mathf.Min(size*aspect,(r.position.x-l.position.x)*.5f);
+            float x=Mathf.Clamp(actor.transform.position.x,l.position.x+half,r.position.x-half);
+            position=new Vector3(x,actor.RoomFloorY+size-.5f,-10);
+        }
+        void SnapCamera(Camera cam)
+        {
+            cameraVelocity=Vector3.zero;cameraSizeVelocity=0;
+            if(!InsideRooms)
+            {
+                if(integratedGalleryTurn){corridor.SnapCorridorCamera(cam);return;}
+                cam.orthographicSize=returnCameraSize;
+                cam.transform.position=new Vector3(returnToCorridor.position.x+returnCameraOffset.x,actor.RoomFloorY+returnCameraOffset.y,-10);
+                return;
+            }
+            if(currentArea==4 && integratedGalleryTurn){corridor.SnapCorridorCamera(cam);return;}
+            Target(cam,cam.aspect,out var p,out var s);cam.transform.position=p;cam.orthographicSize=s;
+        }
+        public bool FrameCamera(Camera cam,float aspect)
+        {
+            if(!enabled || !InsideRooms)return false;
+            if(currentArea==4 && integratedGalleryTurn){corridor.FrameCamera(cam,Vector2.zero,aspect);return true;}
+            Target(cam,aspect,out var target,out var size);
+            if(currentArea==2 && bedRevealTriggered)
+            {
+                // The reveal already has a timed smooth curve; avoid another damped
+                // follow layer that would shift or prolong this authored camera move.
+                cam.orthographicSize=size;cam.transform.position=target;return true;
+            }
+            cam.orthographicSize=Mathf.SmoothDamp(cam.orthographicSize,size,ref cameraSizeVelocity,cameraSmooth);
+            cam.transform.position=Vector3.SmoothDamp(cam.transform.position,target,ref cameraVelocity,cameraSmooth);
+            return true;
+        }
+        void LateUpdate()
+        {
+            if(!InsideRooms || !actor || (currentArea==4 && integratedGalleryTurn))return;
+            if(block==null)block=new MaterialPropertyBlock();
+            foreach(var part in actor.Parts)
+            {
+                if(!part)continue;part.GetPropertyBlock(block);
+                block.SetFloat("_Exposure",characterExposure);block.SetFloat("_LightningRim",0);
+                block.SetVector("_PlayerGlowStrength",Vector4.zero);part.SetPropertyBlock(block);
+            }
+        }
+    }
+}
+
+

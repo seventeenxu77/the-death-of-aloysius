@@ -1,0 +1,14 @@
+{
+  "bones": 46,
+  "skins": 5,
+  "keyFrames": 1201,
+  "wakeEnd": 20,
+  "previewDuration": 25,
+  "video": "1536x1024, H264, 60 fps, 1500 frames (ffprobe)",
+  "weightsNormalized": true,
+  "glbContainerValid": true,
+  "timingEditorSupportsBeyond25Seconds": true,
+  "browserErrors": [],
+  "unitySceneModified": false,
+  "unityPlayModeRun": false
+}

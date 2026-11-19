@@ -1,0 +1,46 @@
+任务板关卡 — 使用说明（2026-11-16）
+
+主场景：Assets/Scenes/level1.unity
+新增总根节点：任务板关卡 | Serpent Campaign
+床上骨骼位于原有 Giant bed / Serpent King | 66 bone wake。
+保留原有房间、镜厅、前厅和寝宫布局。新增关卡位于寝宫下方及相邻区域；原卧室回环使用原来的卧室，不是复制卧室。
+
+快速运行
+项目根目录双击 PlaySerpentChapter.cmd：直接从床中央观看苏醒后开始战斗。
+双击 PlayLevelTaskFull.cmd：从原房间开始，沿原来的路线进入寝宫。
+已经打开的 Unity 若仍显示旧内容，先刷新资源并重新打开 Assets/Scenes/level1.unity；磁盘上的场景和独立运行版已经更新。
+
+操作
+A / D：移动。Shift：疾跑。Space：跳跃。
+E：开关、装填炮弹、发射、进入炮筒、启动时间控制器。
+W：站在二层远景入口或顶部出口处进入纵深；站在炮台高台梯子旁攀梯。
+R：本关检查点复位。正常游戏没有额外 HUD。
+· / `：原有 GM 控制台。
+2dtrans wake：床上苏醒；crack：裂缝；spike：尖刺室；fang：突刺塔；loop：原卧室回环；cannon：炮台；time：时间王庭。
+旧地点 room / hall / end / turn / pass / ante / bed 继续可用。
+boss status：查看进度。boss god：切换无敌（默认关闭）。boss reset：重置整个新增章节。
+直接传送用于检查该区域，原有机关进度会保留；要从头重来使用 boss reset。
+
+流程
+1. 到床中心，帘子拉开，四头蛇苏醒。右入口落石封住，左方亮起引导物。
+2. 走到左侧裂纹附近诱导巨石锁定位置；看到预警后离开落点，让它砸开地板，再走进洞口。这里是向下掉落的短竖井。
+3. 地下室 E 打开尖刺机关，站到尖刺下方诱导巨石。命中后楼梯开启；跳上二层，在远景门框前按 W。
+4. 突刺头从左右交替出现。蓄力时躲开头部，伸出停留后可站在蛇颈上；利用两侧安全台阶逐层跳高。头缩回后其支撑面消失。最上方按 W 回到原卧室。
+5. 跳上低位升降台，再在开关距离内按 E 抬升。开关可以反复升降。利用站位高度让水平毒液喷到高处锁链，闸刀落下杀死突刺头。走到闸刀下的洞口进入下层。
+6. 让毒液腐蚀铁门。过门后靠近圆形石球按 E 装填，再在炮台旁 E 发射，杀死毒液头。再次 E 进入炮筒，被发射到高台；走到梯子旁按 W。
+7. 时间王庭中，在沙漏控制器旁 E 设置诱饵。蛇咬住后，A/D 控制蛇头横向移动，W/S 控制前后景深。将头带到当前亮起的沙漏封印位置和对应深度，按 E 触发重锤。四次剥离能力后完成战斗。控制有时间限制，超时可重新诱导。
+
+Inspector 调整
+总根节点 SerpentCampaign：攻击间隔、交互距离、复活保护、升降高度与时间、腐蚀时间、纵深过渡、时间控制持续时间与速度；每个房间的边界、地面、镜头大小、出生点、纵深起终点及支撑面。
+SerpentAttack：Start / End 子物体是可移动的起终点；spriteForwardAngle 设置原画正方向；autoOrient 控制自动朝向。windupSeconds、shakeSeconds、strikeSeconds、holdSeconds、recoverSeconds 分别为蓄力、抖动、突进、停留、回收时间。毒液还可调 sacInflation、jetLength。头位置没有烘死在视频中。
+可复用预制体：Assets/Prefabs/SerpentKing/StoneAttack.prefab、VenomAttack.prefab、FangAttack.prefab。
+苏醒：SerpentWakePlayer 的 playbackSpeed 调速，headProportion 是床内构图的面部比例补偿。源 v016 与 v021 文件未修改。
+
+技术与验证范围
+苏醒由真实 Unity 骨骼和 SkinnedMeshRenderer 播放，保留原有转头、吐信、毒囊及尾巴轨道。毒液攻击的毒囊另有网格权重变形。
+新背景分远景画层、中景柱/门框、前景柱、地面与机关；远景画层有视差。两次 W 纵深穿行会改变人物位置、比例和遮挡顺序。
+Verification 文件夹保存运行检查、事件日志和实际相机渲染。验证器通过真实攻击阶段和交互方法推动机关，也检查非法触发和平台碰撞；使用定位辅助，不等同于全程人手通关或最终美术验收。
+后台验证工程：D:/AloysiusTaskValidation。Assets 和 ArtSource 是指向本 D 盘项目的目录链接，最终资产不依赖临时用户目录。后续直接使用本项目与 Builds/SerpentChapter。
+备份：ArtSource/LevelTask_20261116/Backups。
+
+执行范围以 Assets/Design/level 的“任务”三条为准。文档前面 idea 中尚未确认的双角色录像回溯方案没有擅自替代任务板中的“咬住控制器后控制蛇头”方案。

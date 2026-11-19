@@ -1,0 +1,2 @@
+2026-11-16T23:35:06.8570579+08:00
+Static serpent backdrop removed only. Architecture and gameplay transforms preserved.

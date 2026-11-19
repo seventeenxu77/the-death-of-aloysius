@@ -1,0 +1,428 @@
+﻿{
+    "Project":  "D:\\the death of aloysius\\the death of aloysius",
+    "Archive":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136",
+    "Created":  "2026-11-17T20:31:37.2691851+08:00",
+    "Action":  "Move drafts outside Unity project; preserve metadata",
+    "Items":  [
+                  {
+                      "RelativePath":  "Assets/Art/SerpentKing/BedWake_v023",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\Assets\\Art\\SerpentKing\\BedWake_v023",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\Assets\\Art\\SerpentKing\\BedWake_v023",
+                      "Files":  58,
+                      "Bytes":  20026309
+                  },
+                  {
+                      "RelativePath":  "Assets/Art/SerpentKing/BedWake_v023.meta",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\Assets\\Art\\SerpentKing\\BedWake_v023.meta",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\Assets\\Art\\SerpentKing\\BedWake_v023.meta",
+                      "Files":  1,
+                      "Bytes":  172
+                  },
+                  {
+                      "RelativePath":  "Assets/Art/SerpentKing/StoneSlam_v025",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\Assets\\Art\\SerpentKing\\StoneSlam_v025",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\Assets\\Art\\SerpentKing\\StoneSlam_v025",
+                      "Files":  12,
+                      "Bytes":  3074945
+                  },
+                  {
+                      "RelativePath":  "Assets/Art/SerpentKing/StoneSlam_v025.meta",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\Assets\\Art\\SerpentKing\\StoneSlam_v025.meta",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\Assets\\Art\\SerpentKing\\StoneSlam_v025.meta",
+                      "Files":  1,
+                      "Bytes":  172
+                  },
+                  {
+                      "RelativePath":  "Assets/Art/SerpentKing/FloorBreak_v001/Before.png",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\Assets\\Art\\SerpentKing\\FloorBreak_v001\\Before.png",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\Assets\\Art\\SerpentKing\\FloorBreak_v001\\Before.png",
+                      "Files":  1,
+                      "Bytes":  1621765
+                  },
+                  {
+                      "RelativePath":  "Assets/Art/SerpentKing/FloorBreak_v001/Before.png.meta",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\Assets\\Art\\SerpentKing\\FloorBreak_v001\\Before.png.meta",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\Assets\\Art\\SerpentKing\\FloorBreak_v001\\Before.png.meta",
+                      "Files":  1,
+                      "Bytes":  3303
+                  },
+                  {
+                      "RelativePath":  "Assets/Art/SerpentKing/FloorBreak_v001/After.png",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\Assets\\Art\\SerpentKing\\FloorBreak_v001\\After.png",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\Assets\\Art\\SerpentKing\\FloorBreak_v001\\After.png",
+                      "Files":  1,
+                      "Bytes":  1671561
+                  },
+                  {
+                      "RelativePath":  "Assets/Art/SerpentKing/FloorBreak_v001/After.png.meta",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\Assets\\Art\\SerpentKing\\FloorBreak_v001\\After.png.meta",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\Assets\\Art\\SerpentKing\\FloorBreak_v001\\After.png.meta",
+                      "Files":  1,
+                      "Bytes":  3303
+                  },
+                  {
+                      "RelativePath":  "Assets/Art/SerpentKing/FloorBreak_v001/Floor.mat",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\Assets\\Art\\SerpentKing\\FloorBreak_v001\\Floor.mat",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\Assets\\Art\\SerpentKing\\FloorBreak_v001\\Floor.mat",
+                      "Files":  1,
+                      "Bytes":  1068
+                  },
+                  {
+                      "RelativePath":  "Assets/Art/SerpentKing/FloorBreak_v001/Floor.mat.meta",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\Assets\\Art\\SerpentKing\\FloorBreak_v001\\Floor.mat.meta",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\Assets\\Art\\SerpentKing\\FloorBreak_v001\\Floor.mat.meta",
+                      "Files":  1,
+                      "Bytes":  188
+                  },
+                  {
+                      "RelativePath":  "Assets/Art/SerpentKing/FloorBreak_v001/FloorBreak.shader",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\Assets\\Art\\SerpentKing\\FloorBreak_v001\\FloorBreak.shader",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\Assets\\Art\\SerpentKing\\FloorBreak_v001\\FloorBreak.shader",
+                      "Files":  1,
+                      "Bytes":  1406
+                  },
+                  {
+                      "RelativePath":  "Assets/Art/SerpentKing/FloorBreak_v001/FloorBreak.shader.meta",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\Assets\\Art\\SerpentKing\\FloorBreak_v001\\FloorBreak.shader.meta",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\Assets\\Art\\SerpentKing\\FloorBreak_v001\\FloorBreak.shader.meta",
+                      "Files":  1,
+                      "Bytes":  204
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/BedWake_v022",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\BedWake_v022",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\BedWake_v022",
+                      "Files":  60,
+                      "Bytes":  73788144
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/BedWake_v023",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\BedWake_v023",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\BedWake_v023",
+                      "Files":  60,
+                      "Bytes":  64378283
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/BreakerSlam_v012",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\BreakerSlam_v012",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\BreakerSlam_v012",
+                      "Files":  14,
+                      "Bytes":  5475102
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/DarkPulse_v009",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\DarkPulse_v009",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\DarkPulse_v009",
+                      "Files":  10,
+                      "Bytes":  6543855
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/DarkStrike_v010",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\DarkStrike_v010",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\DarkStrike_v010",
+                      "Files":  14,
+                      "Bytes":  17065499
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/ExactEnding_v020",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\ExactEnding_v020",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\ExactEnding_v020",
+                      "Files":  41,
+                      "Bytes":  92853023
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/FourHeadWake_v014",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\FourHeadWake_v014",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\FourHeadWake_v014",
+                      "Files":  13,
+                      "Bytes":  15245002
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/HeadLookPreview_v002",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\HeadLookPreview_v002",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\HeadLookPreview_v002",
+                      "Files":  10,
+                      "Bytes":  6146892
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/LibreSpritePaint_v006",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\LibreSpritePaint_v006",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\LibreSpritePaint_v006",
+                      "Files":  3,
+                      "Bytes":  68455
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/PixelBlockPreview_v007",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\PixelBlockPreview_v007",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\PixelBlockPreview_v007",
+                      "Files":  3,
+                      "Bytes":  30212
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/PixelDraft_v001",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\PixelDraft_v001",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\PixelDraft_v001",
+                      "Files":  27,
+                      "Bytes":  82116
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/PixelHeadLook_v003",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\PixelHeadLook_v003",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\PixelHeadLook_v003",
+                      "Files":  11,
+                      "Bytes":  1747507
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/PixelIdle_v005",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\PixelIdle_v005",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\PixelIdle_v005",
+                      "Files":  34,
+                      "Bytes":  5903120
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/PixelProbe_v004",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\PixelProbe_v004",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\PixelProbe_v004",
+                      "Files":  21,
+                      "Bytes":  11501266
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/SkeletalWake_v016",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\SkeletalWake_v016",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\SkeletalWake_v016",
+                      "Files":  17,
+                      "Bytes":  30514853
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/SkeletalWake_v017",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\SkeletalWake_v017",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\SkeletalWake_v017",
+                      "Files":  19,
+                      "Bytes":  33346183
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/SkeletalWake_v019",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\SkeletalWake_v019",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\SkeletalWake_v019",
+                      "Files":  18,
+                      "Bytes":  30855368
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/Skeletal_v011",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\Skeletal_v011",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\Skeletal_v011",
+                      "Files":  13,
+                      "Bytes":  10209369
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/SourceRig_v018",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\SourceRig_v018",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\SourceRig_v018",
+                      "Files":  54,
+                      "Bytes":  66269613
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/StoneSlam_NoFX_v027",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\StoneSlam_NoFX_v027",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\StoneSlam_NoFX_v027",
+                      "Files":  17,
+                      "Bytes":  10486414
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/StoneSlam_v024",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\StoneSlam_v024",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\StoneSlam_v024",
+                      "Files":  18,
+                      "Bytes":  10649513
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/StoneSlam_v025",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\StoneSlam_v025",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\StoneSlam_v025",
+                      "Files":  20,
+                      "Bytes":  11644285
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/SwayPreview_v001",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\SwayPreview_v001",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\SwayPreview_v001",
+                      "Files":  10,
+                      "Bytes":  8135525
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/V016Restored_v021",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\V016Restored_v021",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\V016Restored_v021",
+                      "Files":  61,
+                      "Bytes":  162790115
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/WaistTwist_v008",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\WaistTwist_v008",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\WaistTwist_v008",
+                      "Files":  11,
+                      "Bytes":  7078557
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/WakeSequence_v015",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\WakeSequence_v015",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\WakeSequence_v015",
+                      "Files":  376,
+                      "Bytes":  172266633
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/WakeTurn_v013",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\WakeTurn_v013",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\WakeTurn_v013",
+                      "Files":  12,
+                      "Bytes":  8688230
+                  },
+                  {
+                      "RelativePath":  "Assets/Scripts/Level1/Editor/SerpentBedWakeInstaller.cs",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\Assets\\Scripts\\Level1\\Editor\\SerpentBedWakeInstaller.cs",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\Assets\\Scripts\\Level1\\Editor\\SerpentBedWakeInstaller.cs",
+                      "Files":  1,
+                      "Bytes":  7440
+                  },
+                  {
+                      "RelativePath":  "Assets/Scripts/Level1/Editor/SerpentBedWakeInstaller.cs.meta",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\Assets\\Scripts\\Level1\\Editor\\SerpentBedWakeInstaller.cs.meta",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\Assets\\Scripts\\Level1\\Editor\\SerpentBedWakeInstaller.cs.meta",
+                      "Files":  1,
+                      "Bytes":  243
+                  },
+                  {
+                      "RelativePath":  "Assets/Scripts/Level1/Editor/FloorBreakInstaller.cs",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\Assets\\Scripts\\Level1\\Editor\\FloorBreakInstaller.cs",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\Assets\\Scripts\\Level1\\Editor\\FloorBreakInstaller.cs",
+                      "Files":  1,
+                      "Bytes":  5057
+                  },
+                  {
+                      "RelativePath":  "Assets/Scripts/Level1/Editor/FloorBreakInstaller.cs.meta",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\Assets\\Scripts\\Level1\\Editor\\FloorBreakInstaller.cs.meta",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\Assets\\Scripts\\Level1\\Editor\\FloorBreakInstaller.cs.meta",
+                      "Files":  1,
+                      "Bytes":  243
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/CrackedFloorReview_v001/CrackedFloor_Concept.png",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\CrackedFloorReview_v001\\CrackedFloor_Concept.png",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\CrackedFloorReview_v001\\CrackedFloor_Concept.png",
+                      "Files":  1,
+                      "Bytes":  1630811
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/CrackedFloorReview_v001/BrokenFloor_Hole_v003.png",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\CrackedFloorReview_v001\\BrokenFloor_Hole_v003.png",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\CrackedFloorReview_v001\\BrokenFloor_Hole_v003.png",
+                      "Files":  1,
+                      "Bytes":  1665175
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/BlackGoldWake_v026/BeforeBlackGold_20261117_193029.unity.backup",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\BlackGoldWake_v026\\BeforeBlackGold_20261117_193029.unity.backup",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\BlackGoldWake_v026\\BeforeBlackGold_20261117_193029.unity.backup",
+                      "Files":  1,
+                      "Bytes":  1065649
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/BlackGoldWake_v026/encode.log",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\BlackGoldWake_v026\\encode.log",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\BlackGoldWake_v026\\encode.log",
+                      "Files":  1,
+                      "Bytes":  82130
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/FloorBreakAnimation_v001/BeforeIntegration_20261117_200011.unity.backup",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\FloorBreakAnimation_v001\\BeforeIntegration_20261117_200011.unity.backup",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\FloorBreakAnimation_v001\\BeforeIntegration_20261117_200011.unity.backup",
+                      "Files":  1,
+                      "Bytes":  1067547
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/FloorBreakAnimation_v001/FloorBreak_Closeup.mp4.log",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\FloorBreakAnimation_v001\\FloorBreak_Closeup.mp4.log",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\FloorBreakAnimation_v001\\FloorBreak_Closeup.mp4.log",
+                      "Files":  1,
+                      "Bytes":  9438
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/FloorBreakAnimation_v001/FloorBreak_Room.mp4.log",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\FloorBreakAnimation_v001\\FloorBreak_Room.mp4.log",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\FloorBreakAnimation_v001\\FloorBreak_Room.mp4.log",
+                      "Files":  1,
+                      "Bytes":  10921
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/FloorBreakAnimation_v001/Frame_000.png",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\FloorBreakAnimation_v001\\Frame_000.png",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\FloorBreakAnimation_v001\\Frame_000.png",
+                      "Files":  1,
+                      "Bytes":  912936
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/FloorBreakAnimation_v001/Frame_068.png",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\FloorBreakAnimation_v001\\Frame_068.png",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\FloorBreakAnimation_v001\\Frame_068.png",
+                      "Files":  1,
+                      "Bytes":  972985
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/FloorBreakAnimation_v001/Frame_080.png",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\FloorBreakAnimation_v001\\Frame_080.png",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\FloorBreakAnimation_v001\\Frame_080.png",
+                      "Files":  1,
+                      "Bytes":  975508
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/FloorBreakAnimation_v001/Frame_110.png",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\FloorBreakAnimation_v001\\Frame_110.png",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\FloorBreakAnimation_v001\\Frame_110.png",
+                      "Files":  1,
+                      "Bytes":  983773
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/FloorBreakAnimation_v001/Frame_180.png",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\FloorBreakAnimation_v001\\Frame_180.png",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\FloorBreakAnimation_v001\\Frame_180.png",
+                      "Files":  1,
+                      "Bytes":  980234
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/FloorBreakAnimation_v001/Frame_300.png",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\FloorBreakAnimation_v001\\Frame_300.png",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\FloorBreakAnimation_v001\\Frame_300.png",
+                      "Files":  1,
+                      "Bytes":  977896
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/FullFloor_v002/BeforeFullFloor_20261117_201354.unity.backup",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\FullFloor_v002\\BeforeFullFloor_20261117_201354.unity.backup",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\FullFloor_v002\\BeforeFullFloor_20261117_201354.unity.backup",
+                      "Files":  1,
+                      "Bytes":  1070456
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/FullFloor_v002/BeforeOcclusion_20261117_202031.unity.backup",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\FullFloor_v002\\BeforeOcclusion_20261117_202031.unity.backup",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\FullFloor_v002\\BeforeOcclusion_20261117_202031.unity.backup",
+                      "Files":  1,
+                      "Bytes":  1070590
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/StoneSlam_BlackGold_v028/BeforeCombat_20261117_192433.unity.backup",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\StoneSlam_BlackGold_v028\\BeforeCombat_20261117_192433.unity.backup",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\StoneSlam_BlackGold_v028\\BeforeCombat_20261117_192433.unity.backup",
+                      "Files":  1,
+                      "Bytes":  1065607
+                  },
+                  {
+                      "RelativePath":  "ArtSource/SerpentKing/StoneSlam_BlackGold_v028/encode.log",
+                      "Source":  "D:\\the death of aloysius\\the death of aloysius\\ArtSource\\SerpentKing\\StoneSlam_BlackGold_v028\\encode.log",
+                      "Destination":  "D:\\the death of aloysius\\_ArchivedDrafts\\Serpent_20261117_203136\\ArtSource\\SerpentKing\\StoneSlam_BlackGold_v028\\encode.log",
+                      "Files":  1,
+                      "Bytes":  7851
+                  }
+              ]
+}

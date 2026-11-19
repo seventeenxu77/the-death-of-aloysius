@@ -1,0 +1,5 @@
+2026-11-16T15:21:05.4672751+08:00
+Scene: Assets/Scenes/level1.unity
+Backup: ArtSource/SerpentKing/BedchamberLayers_v001/Integration/level1-before-bedchamber-20261116-152102.unity
+13 textures; independent scene props, two curtain meshes, same-scene room route.
+Authoring/import/save only; no Play mode or tests.

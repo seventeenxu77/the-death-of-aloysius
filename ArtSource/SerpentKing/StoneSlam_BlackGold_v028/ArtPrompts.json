@@ -1,0 +1,6 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "reference": "../BlackGoldWake_v026/Layers/Stone_Open.png",
+  "pose": "../StoneSlam_v025/Stone_Open.png",
+  "request": "Preserve original downward stone head pose, canvas 1024x1536, nose x405 y1228. Flat near-black body, antique gold outline and scale seams, white eye. Transparent background. No burgundy, gradients, glow, ground or attack VFX. Closed frame: replace only white eye with black and gold eyelid."
+}

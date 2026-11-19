@@ -1,0 +1,9 @@
+PASS continuous staircase visible before defeating stone
+PASS door is against right boundary
+PASS spike is left of staircase landing
+PASS door threshold aligns with upper walking floor
+PASS normal walk reaches stair top without teleport or jumping
+PASS stair support reaches exact gallery height
+PASS upper landing connects continuously to right-hand door
+PASS switch reachable on ground floor
+PASS lower floor cannot trigger upper door

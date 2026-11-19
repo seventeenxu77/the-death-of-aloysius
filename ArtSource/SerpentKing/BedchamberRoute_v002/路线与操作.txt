@@ -1,0 +1,20 @@
+同层路线：镜厅尽头 → 向远景深入的走廊 → 远端左转 → 密闭横向走廊 → 前室 → 左侧巨床寝宫。
+原镜厅尽头的锁门/小洞捷径、前室的旧小洞已停用，保留为 inactive 对象供撤回；原出生房间和它通往镜厅的蛇皮管道不变。
+
+操作：
+镜厅尽头站到入口旁，按 W 或 E 进入纵深走廊，不需要跳跃。
+纵深段 W/上箭头 深入，S/下箭头 返回；也兼容 D/A。
+可以途中停下或往返，走到远端会沿左侧门洞转入密闭走廊。
+密闭走廊 A/D 左右移动；向左走到门旁按 E 进入前室。
+前室继续向左，左门旁按 E 进入寝宫。
+各房间的返程门按 E；床右侧拉绳附近 E 开合床帘。
+R 返回原始出生点；深度段也保留此操作。
+
+快速运行：PlayPalaceRoute.cmd 从镜厅尽头开始；PlayBedchamber.cmd 从寝宫开始；PlayLevel1.cmd 从原房间开始。
+Unity 的 Level1RoyalBedchamber.StartArea 可选择 MirrorHallEnd、DepthPassage、EnclosedCorridor、Antechamber、GiantBedchamber 或 OriginalRoom。
+纵深段速度、加速度、远端人物比例、拐弯时长、镜头大小和路径标记均在 Inspector 中。
+
+纵深表现使用正面透视背景 + 场景路径 + 人物远近缩放，并复用现有侧面骨骼行走；未新增人物正背面动画。
+所有区域在同一个 level1 Scene 内，以分区镜头连接；图上的远景不代表二楼。
+两张新走廊纹理由内置 imagegen 按批准地图制作，提示词保存在 imagegen_prompts.json。
+本次只导入、编辑、保存与打包，游戏效果由用户运行查看，不进行测试。

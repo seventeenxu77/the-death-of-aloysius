@@ -1,0 +1,4 @@
+Full audio source copy SHA256 equal: True
+Protected Assets missing: 0
+Archive: D:\the death of aloysius\_ArchivedDrafts\Serpent_20261117_203136
+No Play-mode test.
