@@ -120,3 +120,11 @@ __pycache__/
 /ArtSource/LevelTask_20261116/Bridge*.txt
 /ArtSource/LevelTask_20261116/Request.txt
 /ArtSource/LevelTask_20261116/SceneDump.txt
+
+# Local launchers and browser pages stay on disk but are not published to GitHub.
+*.[cC][mM][dD]
+*.[cC][mM][dD].meta
+*.[hH][tT][mM]
+*.[hH][tT][mM].*
+*.[hH][tT][mM][lL]
+*.[hH][tT][mM][lL].*
