@@ -79,21 +79,10 @@ parts=original['parts'];meshes=[mesh(p) for p in parts]
 body=next(m for m in original['meshes'] if m['name']=='Coils')
 meshes.append({k:body[k] for k in ['name','vertices','uv','indices']})
 rig={'parts':parts,'meshes':meshes}
-source=(S/'animation.js').read_text('utf8')
-prefix=source[:source.index('function pose(t){')]
-prefix=prefix.replace('surface.height=1024','surface.height=1280')
-draw=source[source.index('function drawSkin('):source.index('function bones(')]
-draw=draw.replace('gl.viewport(0,0,1536,1024)','gl.viewport(0,0,1536,1280)')
-draw=draw.replace('const closed=isBody?0:1-smooth((t-p.start-p.duration-p.eyeDelay)/p.eyeDuration);','const closed=0;')
-draw=draw.replace('settings.scene&&!isBody?1:0',"settings.scene&&!isBody?(p.name==='Time'?2:1):0")
-start=draw.index('  for(let i=0;i<m.vertices.length;i++)');end=draw.index('  gl.bindBuffer(gl.ARRAY_BUFFER,m.pb)',start)
-draw=draw[:start]+'  deformCurve(m,state);\n'+draw[end:]
-prefix=prefix.replace('gl_FragColor=color;', 'if(color.a<.02)discard;gl_FragColor=color;')
-prefix=prefix.replace('color.a*=1.-roots*smoothstep(845.,865.,p.y);','float wy=1024.-gl_FragCoord.y;if(roots>1.5){color.a*=1.-smoothstep(665.,705.,wy)*smoothstep(570.,620.,p.y);}else if(roots>.5){color.a*=1.-smoothstep(785.,805.,wy);}')
-assets={p.name:'data:image/png;base64,'+base64.b64encode(p.read_bytes()).decode() for p in (S/'Layers').glob('*.png')}
-html=(R/'template.html').read_text('utf8')
-js=prefix+'\n'+draw+'\n'+(R/'editor.js').read_text('utf8')
-html=html.replace('__RIG__',json.dumps(rig,separators=(',',':'),ensure_ascii=False)).replace('__ASSETS__',json.dumps(assets)).replace('__JS__',js)
-(R/'四头蛇_贝塞尔编辑器.html').write_text(html,'utf8')
-(R/'BindingReport.json').write_text(json.dumps({'method':'arc-length frame skinning; rigid skull collar; 8 px alpha-bounded mesh; two C1 cubic Bezier segments','parts':[{k:p[k] for k in ['name','referenceLength','referenceEndAngle']}|{'vertices':len(m['vertices']),'triangles':len(m['indices'])//3} for p,m in zip(parts,meshes)]},indent=2),'utf8')
-print('Built arc-length bindings and standalone Bezier editor.',flush=True)
+snapshot={'RIG':rig}
+old=R/'SourceRig.json'
+if old.exists():
+    previous=json.loads(old.read_text('utf8'))
+    if 'tongueGold' in previous:snapshot['tongueGold']=previous['tongueGold']
+(R/'SourceRig.json').write_text(json.dumps(snapshot,ensure_ascii=False,separators=(',',':')),'utf8')
+print('Built native arc-length rig source JSON; no browser output.')

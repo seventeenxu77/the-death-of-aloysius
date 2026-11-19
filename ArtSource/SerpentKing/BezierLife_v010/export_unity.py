@@ -1,4 +1,4 @@
-"""Export the approved HTML bindings and three poses; never repaint the source art."""
+"""Export the preserved native source bindings and three poses without a webpage."""
 from pathlib import Path
 import json, math, re, hashlib
 
@@ -6,8 +6,9 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
 OUT = ROOT / 'Assets/Art/SerpentKing/BezierLife_v010'
 OUT.mkdir(parents=True, exist_ok=True)
-html = (HERE / '四头蛇_贝塞尔编辑器.html').read_text('utf8')
-rig = json.loads(html.split('window.RIG=', 1)[1].split(';window.ASSETS=', 1)[0])
+source = (HERE / 'SourceRig.json').read_text('utf8')
+snapshot = json.loads(source)
+rig = snapshot['RIG']
 legacy = json.loads((HERE.parent / 'BlackGoldWake_v026/WakeRig.json').read_text('utf8'))
 
 def preset(p, index):
@@ -48,9 +49,9 @@ for p in rig['parts']:
         neckRadius=p['neckRadius'],eyes=sum(p['eyes'],[]),vertices=sum(m['vertices'],[]),
         uv=sum(m['uv'],[]),indices=m['indices'],binding=m['binding'],
         poses=[preset(p,i) for i in range(3)],legacyPoints=sum(old['points'],[]),legacyJoints=pairs,legacyWeights=weights))
-data=dict(version=10,frequency=1.35,parts=parts,tongueGold=re.search(r'window.TONGUE_GOLD=("#[0-9a-fA-F]+");',html).group(1).strip('"'))
+data=dict(version=10,frequency=1.35,parts=parts,tongueGold=snapshot['tongueGold'])
 target=OUT/'BezierLife.json'
 target.write_text(json.dumps(data,ensure_ascii=False,separators=(',',':')),'utf8')
 print('Exported approved three-pose spline rig:',target)
 print('Heads:',len(parts),'vertices:',sum(len(p['vertices'])//2 for p in parts))
-print('Source HTML SHA256:',hashlib.sha256(html.encode('utf8')).hexdigest())
+print('Source data SHA256:',hashlib.sha256(source.encode('utf8')).hexdigest())

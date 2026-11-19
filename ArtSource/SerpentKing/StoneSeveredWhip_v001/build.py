@@ -63,7 +63,4 @@ for point in vertices:
 data=dict(width=w,height=h,chain=np.round(chain,4).tolist(),vertices=vertices.tolist(),indices=indices.tolist(),binding=bindings,
           wound=wound.tolist(),cutAxis=cutaxis.tolist(),cutWidth=cutwidth)
 (R/'WhipRig.json').write_text(json.dumps(data,separators=(',',':')),'utf8')
-html=(R/'preview.html.in').read_text('utf8').replace('__RIG__',json.dumps(data,separators=(',',':'))).replace('__IMAGE__',base64.b64encode((R/'SeveredNeck.png').read_bytes()).decode()).replace('__JS__',(R/'animation.js').read_text('utf8'))
-(R/'断口鞭状摆动预览.html').write_text(html,'utf8')
-print('65 connected joints; fixed root; source texture unchanged;',len(vertices),'vertices;',len(indices)//3,'triangles')
-print('Root',root,'wound',wound,'arc length',round(lengths[-1],1),'cut width',round(cutwidth,1))
+print('Packaged native 65-node continuous whip rig.')

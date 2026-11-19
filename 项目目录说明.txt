@@ -35,13 +35,10 @@ Palace 网格分组代表建筑基础、侍卫弧线、错层、连接通路等�
 家具原始美术（ArtSource/Level1Props）
   保留已确认设计、透明图集，以及生图提示词和 Unity 切片参数。
 
-建筑网页方案（Documentation/RoyalArchitectureEditor）
-  启动建筑编辑器.cmd：打开本地网页。
-  data/project.json：当前方案；data/history：用户保存历史。
-  model：Unity 基础模型导出；references/atlas：网页中的剖面图册。
-  网页修改不会自动回写 Unity。
-  server.py、app.js、vendor 等是网页本身的运行依赖，不是 Unity 自动操作工具。
-  qa、__pycache__ 已按确认清单清理；tests 保留。logs 与测试缓存不上传 Git，不属于 Unity 游戏内容。
+网页工具
+  HTML 预览、网页编辑器及其专用浏览器依赖已按要求删除。
+  原网页中的骨骼和动作已提取为独立 SourceRig.json，人物贴图、原生骨骼与动画 JSON 保留。
+  当前蛇动画和拨杆动作可直接从独立 JSON 导出到 Unity，不依赖网页。
 
 独立演示（Builds/GothicBride2D、PlayGothicStage.cmd）
   2026-11-11 已更新哥特剧场可执行版本，支持 Shift + A/D 疾跑。

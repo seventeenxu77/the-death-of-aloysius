@@ -48,7 +48,4 @@ for i,(x,y) in enumerate(body['vertices']):
  body['joints'][i]=[rig['bodyJointIds'][k],rig['bodyJointIds'][k+1]];body['weights'][i]=[1-w,w]
 rig['meshes'].append(body)
 (R/'WakeRig.json').write_text(json.dumps(rig,separators=(',',':'),ensure_ascii=False),'utf-8')
-assets={f.name:'data:image/png;base64,'+base64.b64encode(f.read_bytes()).decode() for f in (R/'Layers').glob('*.png')}
-html=(R/'preview.html.in').read_text('utf-8').replace('__RIG__',json.dumps(rig,ensure_ascii=False,separators=(',',':'))).replace('__ASSETS__',json.dumps(assets)).replace('__JS__',(R/'animation.js').read_text('utf-8'))
-(R/'WakeDirector.html').write_text(html,'utf-8')
-print('Packaged 46 parented bones, four independent full head-neck skins, eye layers and shared coiled-body skin.')
+print('Packaged native parented skeleton and shared body rig.')

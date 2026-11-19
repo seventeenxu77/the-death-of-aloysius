@@ -1,0 +1,13 @@
+网页工具已移除
+
+HTML/HTM、网页模板、JavaScript/CSS 前端和专用浏览器渲染/验证脚本已按要求清理。
+Documentation/RoyalArchitectureEditor 独立网页应用已删除。
+
+美术 PNG、骨骼与动画 JSON、GLB 和现有视频保留。
+删除前已从网页提取 17 份 SourceRig.json，保留原骨骼、蒙皮和动作数据。
+ArtSource/SerpentKing/BezierLife_v010/export_unity.py 现在直接读取 SourceRig.json。
+ArtSource/SerpentKing/LeftSpikeLink_v001/export_lever.py 现在读取同目录 LeverMotion.json。
+骨骼源生成器已改为输出原生数据，不再生成网页。
+
+保留的旧制作笔记可能提到已删除的浏览器预览，此类内容仅作历史说明。
+本轮未改动 Assets 下的游戏场景、美术、运行脚本与原生动画数据，也未运行游戏测试。

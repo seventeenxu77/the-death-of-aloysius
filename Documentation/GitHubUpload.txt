@@ -3,9 +3,10 @@ GitHub 上传与项目恢复说明
 Unity 编辑器版本：2022.3.62f2c1，以 ProjectSettings/ProjectVersion.txt 为准。
 
 需要上传的主体：Assets（连同 .meta）、Packages、ProjectSettings、.gitignore、.gitattributes。
-ArtSource 上传美术原稿、拆件、骨骼与动画数据；HTML 编辑器仅留在本地。
-所有 CMD 启动脚本、HTML/HTM 网页及 HTML 模板均不上传，仅保留本地文件。
-Documentation/RoyalArchitectureEditor 的 HTML 入口仅在本地保留；仓库不提供完整网页应用。
+ArtSource 上传美术原稿、拆件、骨骼与动画数据；网页工具已删除。
+HTML/HTM 网页、模板、浏览器预览脚本和独立建筑网页编辑器已从项目移除。
+CMD 游戏启动脚本仍只保留本地，不上传。
+原网页中的骨骼/动作已提取为独立 SourceRig.json；当前蛇动画导出和拨杆动画导出不再依赖网页。
 
 无需上传且已忽略：Library、Temp、Logs、Builds、UserSettings、Exports、网页 qa 缓存、Python 缓存、ArtSource 场景备份。
 忽略只影响 Git，不代表这些本地文件已删除。

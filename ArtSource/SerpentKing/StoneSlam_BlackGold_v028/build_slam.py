@@ -108,10 +108,4 @@ serializer=serializer.replace("g['animations'].append(animation)","""for ji in r
 animation['name']='Breaker_Windup_Shake_Slam_Recoil'
 g['animations'].append(animation)""")
 exec(serializer)
-html=(ROOT/'preview.template.html').read_text(encoding='utf-8')
-html=html.replace('__RIG__',json.dumps(rig,separators=(',',':'),ensure_ascii=False))
-html=html.replace('__ATLAS__','data:image/png;base64,'+base64.b64encode((ROOT/'Stone_Open.png').read_bytes()).decode())
-html=html.replace('__CLOSED__','data:image/png;base64,'+base64.b64encode((ROOT/'Stone_Closed.png').read_bytes()).decode())
-html=html.replace('__SCRIPT__',(ROOT/'slam.js').read_text(encoding='utf-8'))
-(ROOT/'BreakerSlam.html').write_text(html,encoding='utf-8')
-print('Authored skeletal slam, nose contact, GLB and preview.',flush=True)
+print('Authored native skeletal slam and GLB; no browser output.')

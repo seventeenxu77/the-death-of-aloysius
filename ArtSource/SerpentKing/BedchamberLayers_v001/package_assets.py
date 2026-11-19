@@ -43,12 +43,9 @@ assets['Curtain_Right']['pivot']=[1,1]
 assets['Door_Leaf']['pivot']=[0,0.5]
 manifest={'coordinateSystem':'Preview pixels, origin top-left; Unity pivots bottom-left normalized.', 'designSize':[1774,887], 'assets':assets,'instances':[{'asset':a,'rect':r,'order':i+1} for i,(a,r) in enumerate(placements)],'bed':{'sceneRect':[340,108,620,390],'localSize':[1536,1024],'backToFront':['Bed_Interior','Future_Serpent_Actor','Curtain_Left','Curtain_Right','Bed_Frame'],'interiorRect':[225,350,1090,600],'curtainTop':225,'curtainHeight':740,'closedWidth':585,'gatheredWidth':140,'leftOuterX':190,'rightOuterX':1345},'notes':['Reconstructed from approved concept with imagegen; not pixel-exact extraction.','Scene architecture remains one opaque plate; props and bed parts have alpha.','Future serpent actor is an empty layer slot, not an included image.','Curtain gathering is a mesh-like strip deformation preview, not cloth simulation.']}
 (ROOT/'layers.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding='utf-8')
-template=(ROOT/'preview_template.html').read_text(encoding='utf-8')
-template=template.replace('__MANIFEST__',json.dumps(manifest,ensure_ascii=False)).replace('__IMAGES__',json.dumps(embedded))
-(ROOT/'Curtain_Preview.html').write_text(template,encoding='utf-8')
 print(json.dumps({n:{'size':a['size'],'sourceRect':a['sourceRect']} for n,a in assets.items()},ensure_ascii=False))
 with zipfile.ZipFile(ROOT/'Bedchamber_Layers.zip','w',zipfile.ZIP_DEFLATED) as z:
     for p in ROOT.rglob('*'):
-        if p.is_file() and p.suffix.lower() not in ['.zip','.py'] and p.name!='preview_template.html':
+        if p.is_file() and p.suffix.lower() not in ['.zip','.py'] and not any(token in p.name.lower() for token in ['.html','.htm']) and p.suffix.lower() not in ['.js','.mjs','.css']:
             z.write(p,p.relative_to(ROOT))
-print('Packaged assets, manifest, self-contained preview, reference art and prompts.')
+print('Packaged assets, manifest, reference art and prompts; no webpage.')

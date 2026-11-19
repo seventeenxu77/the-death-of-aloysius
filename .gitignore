@@ -128,3 +128,9 @@ __pycache__/
 *.[hH][tT][mM].*
 *.[hH][tT][mM][lL]
 *.[hH][tT][mM][lL].*
+
+# Browser applications and preview frontend scripts were removed from the project.
+/Documentation/RoyalArchitectureEditor/
+/ArtSource/**/*.js
+/ArtSource/**/*.mjs
+/ArtSource/**/*.css
